@@ -12,6 +12,7 @@ servidor.
 | `kora.js` | Todo el comportamiento: navegación, FAQ, formulario, animaciones |
 | `vendor/gsap/` | GSAP + ScrollTrigger self-hosteados (no CDN) |
 | `_build/` | Generador de las páginas |
+| `vercel.json` | Config del deploy. Manda `X-Robots-Tag: noindex` en todo el sitio, porque mientras los casos sean ficticios no conviene que Google los indexe. **Sacar esa cabecera antes de salir a producción de verdad.** |
 
 Las páginas HTML de la raíz **se generan**, no se editan a mano:
 
