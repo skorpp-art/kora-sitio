@@ -1,0 +1,14 @@
+# robots.txt de KORA
+# Cambiar kora.com.ar por el dominio real antes de publicar.
+#
+# Aclaración: este archivo NO sirve para que Google te indexe. Sirve para
+# controlar qué rastrea y para indicarle dónde está el sitemap, que es lo
+# que de verdad ayuda a que encuentre todas las páginas.
+
+User-agent: *
+Allow: /
+
+# La página de error no aporta nada al buscador
+Disallow: /404.html
+
+Sitemap: https://kora.com.ar/sitemap.xml

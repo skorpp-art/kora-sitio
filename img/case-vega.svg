@@ -1,0 +1,97 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="560" viewBox="0 0 800 560" role="img" aria-label="Mockup de la landing page del Estudio Contable Vega">
+  <title>Landing page — Estudio Contable Vega</title>
+  <defs>
+    <clipPath id="ecv-frame"><rect width="800" height="560" rx="16"/></clipPath>
+    <linearGradient id="ecv-chart" x1="0" y1="1" x2="0" y2="0">
+      <stop offset="0" stop-color="#2563EB" stop-opacity="0.02"/>
+      <stop offset="1" stop-color="#2563EB" stop-opacity="0.22"/>
+    </linearGradient>
+  </defs>
+
+  <g clip-path="url(#ecv-frame)">
+    <rect width="800" height="560" fill="#F9FAFB"/>
+
+    <!-- Barra del navegador -->
+    <rect width="800" height="44" fill="#F3F4F6"/>
+    <circle cx="26" cy="22" r="5" fill="#E5E7EB"/>
+    <circle cx="44" cy="22" r="5" fill="#E5E7EB"/>
+    <circle cx="62" cy="22" r="5" fill="#E5E7EB"/>
+    <rect x="88" y="11" width="260" height="22" rx="11" fill="#FFFFFF"/>
+    <rect x="102" y="19" width="150" height="6" rx="3" fill="#E5E7EB"/>
+    <line x1="0" y1="44" x2="800" y2="44" stroke="#E5E7EB" stroke-width="1"/>
+
+    <!-- Header -->
+    <rect x="0" y="45" width="800" height="54" fill="#FFFFFF"/>
+    <circle cx="46" cy="72" r="11" fill="#1E3A8A"/>
+    <rect x="66" y="67" width="96" height="10" rx="5" fill="#111827"/>
+    <rect x="440" y="69" width="48" height="6" rx="3" fill="#6B7280"/>
+    <rect x="504" y="69" width="62" height="6" rx="3" fill="#6B7280"/>
+    <rect x="582" y="69" width="44" height="6" rx="3" fill="#6B7280"/>
+    <rect x="654" y="58" width="114" height="28" rx="8" fill="#1E3A8A"/>
+    <rect x="674" y="69" width="74" height="6" rx="3" fill="#FFFFFF"/>
+    <line x1="0" y1="99" x2="800" y2="99" stroke="#E5E7EB" stroke-width="1"/>
+
+    <!-- Hero -->
+    <rect x="48" y="134" width="128" height="22" rx="11" fill="#EFF6FF"/>
+    <rect x="62" y="142" width="100" height="6" rx="3" fill="#2563EB"/>
+    <rect x="48" y="172" width="330" height="20" rx="6" fill="#111827"/>
+    <rect x="48" y="202" width="272" height="20" rx="6" fill="#111827"/>
+    <rect x="48" y="232" width="192" height="20" rx="6" fill="#1E3A8A"/>
+    <rect x="48" y="274" width="326" height="8" rx="4" fill="#E5E7EB"/>
+    <rect x="48" y="292" width="286" height="8" rx="4" fill="#E5E7EB"/>
+    <rect x="48" y="326" width="152" height="38" rx="8" fill="#1E3A8A"/>
+    <rect x="76" y="341" width="96" height="8" rx="4" fill="#FFFFFF"/>
+    <rect x="216" y="326" width="118" height="38" rx="8" fill="#FFFFFF" stroke="#E5E7EB"/>
+    <rect x="240" y="341" width="70" height="8" rx="4" fill="#6B7280"/>
+
+    <!-- Tarjeta con gráfico -->
+    <rect x="436" y="134" width="316" height="230" rx="14" fill="#FFFFFF" stroke="#E5E7EB"/>
+    <rect x="460" y="158" width="122" height="9" rx="4.5" fill="#111827"/>
+    <rect x="460" y="176" width="78" height="6" rx="3" fill="#9CA3AF"/>
+    <rect x="666" y="156" width="62" height="22" rx="11" fill="#ECFEFF"/>
+    <rect x="678" y="164" width="38" height="6" rx="3" fill="#06B6D4"/>
+
+    <path d="M460 316 L508 292 L556 300 L604 258 L652 240 L700 204 L728 196 L728 316 Z" fill="url(#ecv-chart)"/>
+    <polyline points="460,316 508,292 556,300 604,258 652,240 700,204 728,196" fill="none" stroke="#2563EB" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="604" cy="258" r="4" fill="#FFFFFF" stroke="#2563EB" stroke-width="2.5"/>
+    <circle cx="728" cy="196" r="5" fill="#06B6D4"/>
+    <line x1="460" y1="330" x2="728" y2="330" stroke="#E5E7EB"/>
+    <rect x="460" y="342" width="26" height="5" rx="2.5" fill="#E5E7EB"/>
+    <rect x="524" y="342" width="26" height="5" rx="2.5" fill="#E5E7EB"/>
+    <rect x="588" y="342" width="26" height="5" rx="2.5" fill="#E5E7EB"/>
+    <rect x="652" y="342" width="26" height="5" rx="2.5" fill="#E5E7EB"/>
+    <rect x="702" y="342" width="26" height="5" rx="2.5" fill="#E5E7EB"/>
+
+    <!-- Tarjetas de servicios -->
+    <rect x="48" y="400" width="228" height="118" rx="12" fill="#FFFFFF" stroke="#E5E7EB"/>
+    <rect x="72" y="424" width="34" height="34" rx="8" fill="#EFF6FF"/>
+    <rect x="82" y="437" width="14" height="8" rx="2" fill="#1E3A8A"/>
+    <rect x="72" y="472" width="120" height="8" rx="4" fill="#111827"/>
+    <rect x="72" y="490" width="164" height="6" rx="3" fill="#E5E7EB"/>
+
+    <rect x="292" y="400" width="228" height="118" rx="12" fill="#FFFFFF" stroke="#06B6D4"/>
+    <rect x="316" y="424" width="34" height="34" rx="8" fill="#ECFEFF"/>
+    <circle cx="333" cy="441" r="7" fill="none" stroke="#06B6D4" stroke-width="2"/>
+    <rect x="316" y="472" width="140" height="8" rx="4" fill="#111827"/>
+    <rect x="316" y="490" width="154" height="6" rx="3" fill="#E5E7EB"/>
+
+    <rect x="536" y="400" width="216" height="118" rx="12" fill="#FFFFFF" stroke="#E5E7EB"/>
+    <rect x="560" y="424" width="34" height="34" rx="8" fill="#EFF6FF"/>
+    <path d="M569 441l6 6 10-12" fill="none" stroke="#1E3A8A" stroke-width="2" stroke-linecap="round"/>
+    <rect x="560" y="472" width="112" height="8" rx="4" fill="#111827"/>
+    <rect x="560" y="490" width="146" height="6" rx="3" fill="#E5E7EB"/>
+
+    <!-- Motivo de nodos de fondo -->
+    <g opacity="0.35">
+      <line x1="352" y1="112" x2="404" y2="182" stroke="#E5E7EB" stroke-width="1"/>
+      <line x1="404" y1="182" x2="382" y2="268" stroke="#E5E7EB" stroke-width="1"/>
+      <line x1="404" y1="182" x2="428" y2="118" stroke="#E5E7EB" stroke-width="1"/>
+      <circle cx="352" cy="112" r="3.5" fill="#06B6D4"/>
+      <circle cx="404" cy="182" r="4.5" fill="#1E3A8A"/>
+      <circle cx="382" cy="268" r="3.5" fill="#06B6D4"/>
+      <circle cx="428" cy="118" r="3.5" fill="#06B6D4"/>
+    </g>
+  </g>
+
+  <rect x="0.5" y="0.5" width="799" height="559" rx="16" fill="none" stroke="#E5E7EB"/>
+</svg>

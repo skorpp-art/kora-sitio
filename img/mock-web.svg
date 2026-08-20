@@ -1,0 +1,119 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="660" height="800" viewBox="0 0 660 800" role="img" aria-label="Vista de una web hecha por KORA: encabezado, titular, botones, tarjetas de servicio y métricas.">
+  <title>Mock de sitio web</title>
+  <defs>
+    <clipPath id="mw-marco"><rect width="660" height="800" rx="14"/></clipPath>
+    <clipPath id="mw-foto"><rect x="430" y="146" width="202" height="176" rx="12"/></clipPath>
+    <linearGradient id="mw-grad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#1E3A8A"/>
+      <stop offset="1" stop-color="#2563EB"/>
+    </linearGradient>
+  </defs>
+
+  <g clip-path="url(#mw-marco)">
+    <rect width="660" height="800" fill="#F9FAFB"/>
+
+    <!-- Barra del navegador -->
+    <rect width="660" height="54" fill="#F3F4F6"/>
+    <circle cx="26" cy="27" r="5.5" fill="#E5E7EB"/>
+    <circle cx="46" cy="27" r="5.5" fill="#E5E7EB"/>
+    <circle cx="66" cy="27" r="5.5" fill="#E5E7EB"/>
+    <rect x="92" y="15" width="250" height="24" rx="12" fill="#FFFFFF"/>
+    <rect x="106" y="24" width="120" height="6" rx="3" fill="#E5E7EB"/>
+    <line x1="0" y1="54" x2="660" y2="54" stroke="#E5E7EB"/>
+
+    <!-- Encabezado del sitio -->
+    <rect x="0" y="54" width="660" height="62" fill="#FFFFFF"/>
+    <circle cx="42" cy="85" r="13" fill="none" stroke="#1E3A8A" stroke-width="4"/>
+    <circle cx="42" cy="85" r="4.5" fill="#06B6D4"/>
+    <rect x="66" y="80" width="46" height="9" rx="4.5" fill="#111827"/>
+    <rect x="330" y="82" width="42" height="6" rx="3" fill="#9CA3AF"/>
+    <rect x="388" y="82" width="34" height="6" rx="3" fill="#9CA3AF"/>
+    <rect x="438" y="82" width="40" height="6" rx="3" fill="#9CA3AF"/>
+    <rect x="556" y="70" width="76" height="30" rx="8" fill="#06B6D4"/>
+    <rect x="573" y="82" width="42" height="6" rx="3" fill="#FFFFFF"/>
+    <line x1="0" y1="116" x2="660" y2="116" stroke="#E5E7EB"/>
+
+    <!-- Píldora -->
+    <rect x="28" y="146" width="150" height="26" rx="13" fill="#FFFFFF" stroke="#E5E7EB"/>
+    <circle cx="45" cy="159" r="4" fill="#06B6D4"/>
+    <rect x="58" y="156" width="104" height="6" rx="3" fill="#9CA3AF"/>
+
+    <!-- Titular -->
+    <rect x="28" y="190" width="360" height="20" rx="6" fill="#111827"/>
+    <rect x="28" y="220" width="286" height="20" rx="6" fill="#1E3A8A"/>
+    <rect x="28" y="250" width="322" height="20" rx="6" fill="#111827"/>
+
+    <!-- Bajada -->
+    <rect x="28" y="292" width="330" height="8" rx="4" fill="#E5E7EB"/>
+    <rect x="28" y="310" width="268" height="8" rx="4" fill="#E5E7EB"/>
+
+    <!-- Botones -->
+    <rect x="28" y="340" width="132" height="38" rx="9" fill="#1E3A8A"/>
+    <rect x="55" y="355" width="78" height="7" rx="3.5" fill="#FFFFFF"/>
+    <rect x="172" y="340" width="112" height="38" rx="9" fill="#FFFFFF" stroke="#E5E7EB"/>
+    <rect x="196" y="355" width="64" height="7" rx="3.5" fill="#9CA3AF"/>
+
+    <!-- Tarjeta visual con el motivo de nodos -->
+    <rect x="430" y="146" width="202" height="176" rx="12" fill="#FFFFFF" stroke="#E5E7EB"/>
+    <g clip-path="url(#mw-foto)">
+      <rect x="430" y="146" width="202" height="176" fill="url(#mw-grad)"/>
+      <g stroke="#FFFFFF" stroke-width="1.2" opacity="0.55">
+        <line x1="466" y1="290" x2="516" y2="222"/>
+        <line x1="516" y1="222" x2="580" y2="252"/>
+        <line x1="516" y1="222" x2="540" y2="176"/>
+        <line x1="580" y1="252" x2="608" y2="196"/>
+      </g>
+      <circle cx="466" cy="290" r="5" fill="#06B6D4"/>
+      <circle cx="516" cy="222" r="7" fill="#FFFFFF"/>
+      <circle cx="580" cy="252" r="5" fill="#06B6D4"/>
+      <circle cx="540" cy="176" r="4.5" fill="#06B6D4"/>
+      <circle cx="608" cy="196" r="4.5" fill="#06B6D4"/>
+    </g>
+
+    <!-- Tres tarjetas de servicio -->
+    <g>
+      <rect x="28" y="410" width="192" height="150" rx="12" fill="#FFFFFF" stroke="#E5E7EB"/>
+      <rect x="50" y="432" width="34" height="34" rx="9" fill="#ECFEFF"/>
+      <rect x="59" y="443" width="16" height="12" rx="2" fill="none" stroke="#06B6D4" stroke-width="2"/>
+      <rect x="50" y="486" width="96" height="9" rx="4.5" fill="#111827"/>
+      <rect x="50" y="508" width="146" height="6" rx="3" fill="#E5E7EB"/>
+      <rect x="50" y="524" width="118" height="6" rx="3" fill="#E5E7EB"/>
+
+      <rect x="234" y="410" width="192" height="150" rx="12" fill="#FFFFFF" stroke="#06B6D4"/>
+      <rect x="256" y="432" width="34" height="34" rx="9" fill="#ECFEFF"/>
+      <circle cx="269" cy="449" r="2.6" fill="#06B6D4"/>
+      <circle cx="279" cy="449" r="2.6" fill="#06B6D4"/>
+      <rect x="256" y="486" width="112" height="9" rx="4.5" fill="#111827"/>
+      <rect x="256" y="508" width="150" height="6" rx="3" fill="#E5E7EB"/>
+      <rect x="256" y="524" width="104" height="6" rx="3" fill="#E5E7EB"/>
+
+      <rect x="440" y="410" width="192" height="150" rx="12" fill="#FFFFFF" stroke="#E5E7EB"/>
+      <rect x="462" y="432" width="34" height="34" rx="9" fill="#ECFEFF"/>
+      <rect x="472" y="440" width="14" height="18" rx="3" fill="none" stroke="#06B6D4" stroke-width="2"/>
+      <rect x="462" y="486" width="86" height="9" rx="4.5" fill="#111827"/>
+      <rect x="462" y="508" width="140" height="6" rx="3" fill="#E5E7EB"/>
+      <rect x="462" y="524" width="112" height="6" rx="3" fill="#E5E7EB"/>
+    </g>
+
+    <!-- Franja de métricas -->
+    <rect x="28" y="590" width="604" height="96" rx="12" fill="#FFFFFF" stroke="#E5E7EB"/>
+    <line x1="229" y1="590" x2="229" y2="686" stroke="#E5E7EB"/>
+    <line x1="430" y1="590" x2="430" y2="686" stroke="#E5E7EB"/>
+    <rect x="56" y="618" width="58" height="20" rx="5" fill="#1E3A8A"/>
+    <rect x="56" y="648" width="104" height="6" rx="3" fill="#E5E7EB"/>
+    <rect x="257" y="618" width="72" height="20" rx="5" fill="#1E3A8A"/>
+    <rect x="257" y="648" width="88" height="6" rx="3" fill="#E5E7EB"/>
+    <rect x="458" y="618" width="50" height="20" rx="5" fill="#1E3A8A"/>
+    <rect x="458" y="648" width="112" height="6" rx="3" fill="#E5E7EB"/>
+
+    <!-- Pie -->
+    <rect x="0" y="716" width="660" height="84" fill="#111827"/>
+    <circle cx="42" cy="752" r="11" fill="none" stroke="#FFFFFF" stroke-width="3.5"/>
+    <circle cx="42" cy="752" r="4" fill="#06B6D4"/>
+    <rect x="64" y="748" width="40" height="8" rx="4" fill="#FFFFFF"/>
+    <rect x="420" y="750" width="52" height="5" rx="2.5" fill="#6B7280"/>
+    <rect x="488" y="750" width="44" height="5" rx="2.5" fill="#6B7280"/>
+    <rect x="548" y="750" width="60" height="5" rx="2.5" fill="#6B7280"/>
+  </g>
+  <rect x="0.5" y="0.5" width="659" height="799" rx="14" fill="none" stroke="#E5E7EB"/>
+</svg>

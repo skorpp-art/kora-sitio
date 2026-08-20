@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128" role="img" aria-label="KORA">
+  <title>KORA — isotipo</title>
+  <!--
+    Construcción geométrica (para que cualquiera lo pueda rehacer):
+      · Tres circunferencias de r=23 con centro a 23 del eje, a 0°, 120° y 240°.
+        Como la distancia al centro es igual al radio, las tres pasan
+        exactamente por el punto medio: de ahí sale el nudo.
+      · Disco central de r=15 tapando esa convergencia: el núcleo.
+      · Tres nodos de r=11 en los extremos exteriores (a 46 del centro),
+        uno por servicio: web, chatbots y apps.
+    El translate(0 9) centra ópticamente el conjunto en el lienzo.
+  -->
+  <g transform="translate(0 9)">
+    <g fill="none" stroke="#1E3A8A" stroke-width="9">
+      <circle cx="64" cy="41" r="23"/>
+      <circle cx="83.92" cy="75.5" r="23"/>
+      <circle cx="44.08" cy="75.5" r="23"/>
+    </g>
+    <circle cx="64" cy="64" r="15" fill="#1E3A8A"/>
+    <circle cx="64" cy="18" r="11" fill="#06B6D4"/>
+    <circle cx="103.84" cy="87" r="11" fill="#06B6D4"/>
+    <circle cx="24.16" cy="87" r="11" fill="#06B6D4"/>
+  </g>
+</svg>

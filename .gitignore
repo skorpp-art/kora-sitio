@@ -1,0 +1,25 @@
+# Material de trabajo — no forma parte del sitio publicado
+cosas/
+.kombai/
+KORA-Brandbook.docx
+*.mp4
+*.jfif
+
+# La tipografía Courbe Sans dejó de usarse cuando el sistema pasó a Inter
+# Tight. Queda fuera del repo para no redistribuir el archivo de fuente.
+fonts/
+
+# Sistema de archivos de Windows
+Thumbs.db
+desktop.ini
+
+# Python compilado
+__pycache__/
+*.pyc
+
+# Tipografías descargadas para comparar candidatas: son binarios de
+# terceros con su propia licencia, no hace falta redistribuirlos.
+_build/fuentes/
+
+# Capturas de diagnóstico que se fueron generando durante el diseño
+_build/*.png

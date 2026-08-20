@@ -1,0 +1,115 @@
+/* Tercer cambio de tipografía, sólo para titulares — el cuerpo (DM Sans)
+   y el resto del sistema display (Big Shoulders Display, números y
+   badges) quedan como estaban.
+
+   Courbe Sans es una tipografía que subió el cliente (Loukas Nicolaou,
+   licencia gratuita de uso comercial — ver fonts/COURBE-SANS-LICENSE.txt).
+   Tiene un problema real: á/é/í/ó/ú/ñ/ü/¿/¡ se dibujan sin la tilde, sin
+   invertir o directamente no existen (comprobado con fontTools, no a
+   ojo). Como pidió el cliente, se usa igual para los títulos, pero
+   palabra por palabra: la que lleva alguno de esos caracteres se envuelve
+   en <span class="sin-courbe"> y cae a Big Shoulders Display, que sí los
+   tiene completos. Ese envoltorio lo hace _build/plantilla.py
+   (función titulo_mixto) en cada título que pasa por el generador; en el
+   home, que tiene el hero escrito a mano, está hecho a mano en el mismo
+   criterio — ver cuerpos/home.html. */
+@font-face {
+  font-family: "Courbe Sans";
+  src: url("fonts/CourbeSans.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  /* === Colores primarios === */
+  --color-primary-700: #1E3A8A;   /* Azul KORA - headers, logo, CTA principal */
+  --color-primary-500: #2563EB;   /* Azul medio - links, botones secundarios */
+  --color-accent-500: #06B6D4;    /* Celeste tech - detalles, íconos, highlights */
+
+  /* === Neutros === */
+  --color-neutral-900: #111827;   /* Grafito - texto principal */
+  --color-neutral-500: #6B7280;   /* Gris pizarra - texto secundario */
+  --color-neutral-200: #E5E7EB;   /* Gris niebla - bordes, separadores */
+  --color-neutral-50:  #F9FAFB;   /* Blanco hueso - fondo general */
+  --color-neutral-0:   #FFFFFF;   /* Blanco puro - cards */
+
+  /* === Estados === */
+  --color-success: #10B981;
+  --color-warning: #F59E0B;
+  --color-error:   #EF4444;
+  --color-info:    #2563EB;
+
+  /* === Tipografía ===
+     Segundo cambio de tipografía del proyecto. El primero fue Sora+Inter
+     -> Bricolage Grotesque+Manrope (más carácter que la Inter genérica).
+     Este es un cambio de sistema completo, inspirado en un style-guide
+     ("Caldera") que el cliente pidió adaptar: un condensado ultra-bold a
+     escala casi arquitectónica para titulares, sobre un cuerpo de peso
+     Medium fijo (nunca Regular ni Bold) como contrapunto. Big Shoulders
+     Display es el sustituto libre más cercano al original de pago de esa
+     referencia (PP Neue Corp Compact); DM Sans en 500 es, de hecho, la
+     MISMA tipografía que la referencia pide para el cuerpo — no hace
+     falta sustituto.
+
+     Regla que viene de esa referencia y que hay que sostener a mano:
+     el cuerpo de texto SIEMPRE en peso 500. Nunca 400 (se ve débil al
+     lado del titular ultra-bold) ni 700 (compite con él).
+
+     Para cambiarlas: estas dos variables y el <link> de Google Fonts
+     en _build/plantilla.py. Después correr python _build/generar.py */
+  --font-display: "Big Shoulders Display", "Bricolage Grotesque", sans-serif;
+  --font-body: "DM Sans", "Manrope", sans-serif;
+  --font-titulo: "Courbe Sans", var(--font-display);  /* sólo títulos —
+                                                          ver nota arriba */
+
+  /* Escala tipográfica — empujada hacia arriba en el tramo alto (2xl-4xl)
+     para el titular y los títulos de sección; xs/sm/base quedan intactos
+     porque ya coincidían con la referencia (12/14/16px). */
+  --text-xs:   0.64rem;   /* 10.24px */
+  --text-sm:   0.8rem;    /* 12.8px  */
+  --text-base: 1rem;      /* 16px    */
+  --text-lg:   1.375rem;  /* 22px  — antes 20px  */
+  --text-xl:   1.75rem;   /* 28px  — antes 25px  */
+  --text-2xl:  2.25rem;   /* 36px  — antes 31px, títulos de sección (H2) */
+  --text-3xl:  3.375rem;  /* 54px  — antes 39px, page-hero / caso-hero   */
+  --text-4xl:  4.5rem;    /* 72px  — antes 49px, título del CTA final    */
+
+  /* === Espaciado (escala 4px) === */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-24: 96px;
+
+  /* === Bordes ===
+     Radios grandes y un sistema de tres formas (rect. suave / píldora de
+     inputs / píldora completa) es la firma visual más reconocible de la
+     referencia Caldera — ahí se pide 40px/100px/800px; acá se escala
+     hacia abajo porque las tarjetas de KORA son más chicas en términos
+     absolutos, pero la PROPORCIÓN (radio grande, nunca esquina casi recta)
+     es la misma idea. */
+  --radius-sm: 8px;       /* antes 4px  — detalles chicos */
+  --radius-md: 14px;      /* antes 8px  — íconos, tooltip, elementos chicos */
+  --radius-lg: 32px;      /* antes 16px, después 28px — con los tokens reales
+                              de la referencia en mano (cards=40px) se acerca
+                              más; queda un poco por debajo de 40 porque las
+                              tarjetas de KORA son físicamente más chicas y a
+                              40px empezaban a leerse como blob en las de
+                              4 columnas (entregables, íconos). */
+  --radius-pill: 800px;   /* NUEVO — botones, tags, nav, badges: nunca
+                              rectangulares. 800px es el valor exacto de la
+                              referencia; en la práctica da lo mismo que
+                              999px (cualquier valor ≥ mitad del alto del
+                              elemento cierra la píldora), se ajusta al
+                              número real solo por prolijidad. */
+  --radius-input: 100px;  /* NUEVO — inputs de una sola línea */
+
+  /* === Sombras (uso mínimo, look serio) === */
+  --shadow-sm: 0 1px 2px rgba(17, 24, 39, 0.06);
+  --shadow-md: 0 4px 12px rgba(17, 24, 39, 0.08);
+}

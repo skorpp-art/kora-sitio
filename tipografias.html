@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Comparador de tipografías — KORA</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" href="kora-icon-transparent.png" type="image/png">
+
+  <!-- =====================================================================
+       PÁGINA DE TRABAJO INTERNA — no forma parte del sitio.
+
+       Sirve para elegir la combinación tipográfica viendo contenido real
+       de KORA, no muestras de texto genéricas. No está enlazada desde
+       ningún lado y lleva noindex.
+
+       CUANDO ESTÉ DECIDIDO:
+         1. Anotar el nombre de la combinación elegida.
+         2. Poner sus dos familias en --font-display y --font-body
+            dentro de tokens.css.
+         3. Copiar su <link> de Google Fonts a _build/plantilla.py.
+         4. Correr: python _build/generar.py
+         5. Borrar este archivo.
+       ===================================================================== -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Manrope:wght@400..800&family=Space+Grotesk:wght@400..700&family=Inter+Tight:wght@400..800&family=Unbounded:wght@400..800&family=Plus+Jakarta+Sans:wght@400..800&family=Archivo:wdth,wght@75..125,400..800&family=Syne:wght@400..800&family=DM+Sans:opsz,wght@9..40,400..800&family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="tokens.css">
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--color-neutral-50);
+      color: var(--color-neutral-900);
+      font-family: var(--font-body);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ---- Barra de control ---- */
+    .barra {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: var(--color-neutral-900);
+      color: #fff;
+      padding: 14px 32px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 10px;
+    }
+    .barra__titulo {
+      font-family: var(--font-body);
+      font-weight: 700;
+      font-size: 14px;
+      margin-right: 12px;
+      letter-spacing: 0.02em;
+    }
+    .chip {
+      appearance: none;
+      border: 1px solid #374151;
+      background: transparent;
+      color: #D1D5DB;
+      font: inherit;
+      font-size: 13px;
+      font-weight: 600;
+      padding: 7px 14px;
+      border-radius: 100px;
+      cursor: pointer;
+      transition: background-color .18s, border-color .18s, color .18s;
+    }
+    .chip:hover { border-color: var(--color-accent-500); color: #fff; }
+    .chip[aria-pressed="true"] {
+      background: var(--color-accent-500);
+      border-color: var(--color-accent-500);
+      color: #fff;
+    }
+    .barra__nota { font-size: 12.5px; color: #9CA3AF; margin-left: auto; }
+
+    /* ---- Ficha de la combinación ---- */
+    .ficha {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 40px 32px 0;
+    }
+    .ficha__nombre {
+      font-family: var(--font-display);
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      color: var(--color-accent-500);
+    }
+    .ficha__familias {
+      font-size: 15px;
+      color: var(--color-neutral-500);
+      margin: 6px 0 4px;
+    }
+    .ficha__familias code {
+      font-family: ui-monospace, Menlo, monospace;
+      font-size: 13.5px;
+      background: #fff;
+      border: 1px solid var(--color-neutral-200);
+      border-radius: 4px;
+      padding: 2px 7px;
+      color: var(--color-neutral-900);
+    }
+    .ficha__cuando { font-size: 15px; line-height: 1.6; color: var(--color-neutral-500); max-width: 68ch; }
+
+    /* ---- Muestra ---- */
+    .muestra {
+      max-width: 1100px;
+      margin: 24px auto 64px;
+      padding: 0 32px;
+    }
+    .lienzo {
+      background: #fff;
+      border: 1px solid var(--color-neutral-200);
+      border-radius: 16px;
+      overflow: hidden;
+    }
+    .nav-falsa {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      padding: 16px 32px;
+      border-bottom: 1px solid var(--color-neutral-200);
+      background: rgba(249,250,251,.7);
+    }
+    .nav-falsa__marca {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 22px;
+      letter-spacing: -.02em;
+      color: var(--color-primary-700);
+      margin-right: auto;
+    }
+    .nav-falsa a { font-size: 15px; font-weight: 500; color: var(--color-neutral-900); text-decoration: none; }
+    .nav-falsa__cta {
+      background: var(--color-accent-500);
+      color: #fff !important;
+      padding: 9px 18px;
+      border-radius: 8px;
+      font-weight: 600;
+    }
+
+    .cuerpo { padding: 48px 32px 40px; }
+    .pildora {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: 1px solid var(--color-neutral-200);
+      border-radius: 100px;
+      padding: 6px 14px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--color-neutral-500);
+      margin-bottom: 22px;
+    }
+    .pildora::before {
+      content: "";
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--color-accent-500);
+    }
+    h1 {
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 61px;
+      line-height: 1.05;
+      letter-spacing: -.02em;
+      margin: 0 0 20px;
+      max-width: 15ch;
+    }
+    h1 em { font-style: normal; color: var(--color-primary-700); }
+    .bajada {
+      font-size: 20px;
+      line-height: 1.5;
+      color: var(--color-neutral-500);
+      max-width: 54ch;
+      margin: 0 0 28px;
+    }
+    .botones { display: flex; gap: 14px; flex-wrap: wrap; align-items: center; }
+    .boton {
+      display: inline-block;
+      background: var(--color-primary-700);
+      color: #fff;
+      padding: 15px 30px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 16px;
+      text-decoration: none;
+    }
+    .boton--fantasma {
+      background: none;
+      color: var(--color-neutral-900);
+      border-bottom: 2px solid var(--color-neutral-900);
+      border-radius: 0;
+      padding: 15px 4px;
+    }
+
+    .franja {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--color-neutral-200);
+      border-top: 1px solid var(--color-neutral-200);
+      border-bottom: 1px solid var(--color-neutral-200);
+      margin-top: 44px;
+    }
+    .dato { background: #fff; padding: 26px 32px; }
+    .dato__valor {
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 39px;
+      line-height: 1;
+      color: var(--color-primary-700);
+    }
+    .dato__label { font-size: 14px; color: var(--color-neutral-500); margin-top: 8px; }
+
+    .abajo { padding: 40px 32px 48px; display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+    h2 {
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 39px;
+      line-height: 1.15;
+      letter-spacing: -.01em;
+      margin: 0 0 14px;
+    }
+    h3 { font-family: var(--font-display); font-weight: 700; font-size: 20px; margin: 0 0 10px; }
+    p.parrafo { font-size: 16px; line-height: 1.65; color: var(--color-neutral-500); margin: 0 0 12px; }
+    .tarjeta {
+      border: 1px solid var(--color-neutral-200);
+      border-radius: 16px;
+      padding: 26px;
+      background: var(--color-neutral-50);
+    }
+    .chico { font-size: 14px; line-height: 1.6; color: var(--color-neutral-500); }
+
+    @media (max-width: 900px) {
+      h1 { font-size: 40px; }
+      h2 { font-size: 28px; }
+      .abajo { grid-template-columns: 1fr; }
+      .franja { grid-template-columns: 1fr; }
+      .nav-falsa { gap: 16px; flex-wrap: wrap; }
+      .barra, .ficha, .muestra { padding-left: 18px; padding-right: 18px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="barra">
+    <span class="barra__titulo">Combinación:</span>
+    <button class="chip" type="button" data-combo="bricolage" aria-pressed="true">Carácter</button>
+    <button class="chip" type="button" data-combo="space" aria-pressed="false">Técnica</button>
+    <button class="chip" type="button" data-combo="unbounded" aria-pressed="false">Máximo impacto</button>
+    <button class="chip" type="button" data-combo="archivo" aria-pressed="false">Editorial</button>
+    <button class="chip" type="button" data-combo="syne" aria-pressed="false">De diseño</button>
+    <button class="chip" type="button" data-combo="actual" aria-pressed="false">Actual (Sora + Inter)</button>
+    <span class="barra__nota">Usá ← → para ir cambiando</span>
+  </div>
+
+  <div class="ficha">
+    <p class="ficha__nombre" data-nombre>Carácter</p>
+    <p class="ficha__familias"><code data-display>Bricolage Grotesque</code> para títulos · <code data-body>Manrope</code> para texto</p>
+    <p class="ficha__cuando" data-cuando>Terminaciones irregulares y un eje óptico que aprieta el trazo a medida que crece el cuerpo: los titulares tienen personalidad sin volverse ilegibles. Manrope es más redonda y cálida que Inter. Es la que dejé aplicada.</p>
+  </div>
+
+  <div class="muestra">
+    <div class="lienzo">
+      <div class="nav-falsa">
+        <span class="nav-falsa__marca">KORA</span>
+        <a href="#">Servicios</a>
+        <a href="#">Casos</a>
+        <a href="#">Nosotros</a>
+        <a href="#">Precios</a>
+        <a href="#" class="nav-falsa__cta">Hablemos</a>
+      </div>
+
+      <div class="cuerpo">
+        <span class="pildora">Agencia de desarrollo digital · Argentina</span>
+        <h1>Una web que <em>efectivamente convierte</em> visitas en clientes.</h1>
+        <p class="bajada">No solo se ve linda. Diseñamos y desarrollamos webs, chatbots y apps para PyMEs argentinas con un proceso claro y resultados que se pueden medir.</p>
+        <div class="botones">
+          <a class="boton" href="#">Empezar un proyecto</a>
+          <a class="boton boton--fantasma" href="#">Ver casos de éxito</a>
+        </div>
+      </div>
+
+      <div class="franja">
+        <div class="dato"><p class="dato__valor">48</p><p class="dato__label">Proyectos entregados</p></div>
+        <div class="dato"><p class="dato__valor">2.8x</p><p class="dato__label">Conversión promedio</p></div>
+        <div class="dato"><p class="dato__valor">24 h</p><p class="dato__label">Tiempo de respuesta</p></div>
+      </div>
+
+      <div class="abajo">
+        <div>
+          <h2>Tres formas de resolver tu problema digital.</h2>
+          <p class="parrafo">Cada proyecto sigue las mismas etapas, con entregables claros y fechas definidas desde el primer día. Presupuesto cerrado antes de arrancar: sin sorpresas, sin costos ocultos, sin letra chica.</p>
+          <p class="parrafo">Definimos métricas de éxito antes de empezar y reportamos el impacto real en tu negocio.</p>
+        </div>
+        <div class="tarjeta">
+          <h3>¿Cuánto sale una web?</h3>
+          <p class="chico">Depende de tres cosas: cuántas pantallas tiene, si necesita funciones a medida (carrito, reservas, panel de administración, integraciones con tu sistema de gestión) y quién produce los contenidos.</p>
+          <p class="chico">No trabajamos por hora ni con presupuestos abiertos. Después de la primera reunión te pasamos un número cerrado y una fecha de entrega.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<script>
+(function () {
+  'use strict';
+
+  var COMBOS = {
+    bricolage: {
+      nombre: 'Carácter',
+      display: 'Bricolage Grotesque',
+      body: 'Manrope',
+      cuando: 'Terminaciones irregulares y un eje óptico que aprieta el trazo a medida que crece el cuerpo: los titulares tienen personalidad sin volverse ilegibles. Manrope es más redonda y cálida que Inter. Es la que dejé aplicada.',
+      link: 'family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Manrope:wght@400..800'
+    },
+    space: {
+      nombre: 'Técnica',
+      display: 'Space Grotesk',
+      body: 'Inter Tight',
+      cuando: 'Se lee como ingeniería: formas rectas, detalles casi de tipografía monoespaciada. Le queda bien a una agencia de desarrollo que quiere sonar precisa antes que simpática. Es la opción más segura de las cinco.',
+      link: 'family=Space+Grotesk:wght@400..700&family=Inter+Tight:wght@400..800'
+    },
+    unbounded: {
+      nombre: 'Máximo impacto',
+      display: 'Unbounded',
+      body: 'Plus Jakarta Sans',
+      cuando: 'Titulares enormes que no se pueden ignorar. Muy llamativa, pero cuidado: es la tipografía de moda de las startups cripto y de IA, así que puede leerse más como promesa que como oficio. Funciona sólo si los textos son cortos.',
+      link: 'family=Unbounded:wght@400..800&family=Plus+Jakarta+Sans:wght@400..800'
+    },
+    archivo: {
+      nombre: 'Editorial',
+      display: 'Archivo',
+      body: 'Archivo',
+      cuando: 'Una sola familia con eje de ancho variable: los títulos van expandidos y el texto normal. Aire de revista, seria y con carácter. Al usar una sola familia, el sitio carga menos y se ve más coherente.',
+      link: 'family=Archivo:wdth,wght@75..125,400..800'
+    },
+    syne: {
+      nombre: 'De diseño',
+      display: 'Syne',
+      body: 'DM Sans',
+      cuando: 'La más rara de las cinco: proporciones deliberadamente inestables, muy de estudio de diseño. Llama muchísimo la atención y también divide opiniones. Para una PyME de barrio puede resultar demasiado.',
+      link: 'family=Syne:wght@400..800&family=DM+Sans:opsz,wght@9..40,400..800'
+    },
+    actual: {
+      nombre: 'Actual',
+      display: 'Sora',
+      body: 'Inter',
+      cuando: 'Lo que definía el brandbook. Sora está bien y tiene su carácter geométrico; el problema es Inter, que es la tipografía por defecto de medio internet y no aporta nada. Queda acá como referencia para comparar.',
+      link: 'family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600;700'
+    }
+  };
+
+  var orden = Object.keys(COMBOS);
+  var raiz = document.documentElement;
+  var chips = Array.prototype.slice.call(document.querySelectorAll('[data-combo]'));
+
+  function aplicar(clave) {
+    var c = COMBOS[clave];
+    if (!c) return;
+
+    raiz.style.setProperty('--font-display', '"' + c.display + '", sans-serif');
+    raiz.style.setProperty('--font-body', '"' + c.body + '", sans-serif');
+
+    document.querySelector('[data-nombre]').textContent = c.nombre;
+    document.querySelector('[data-display]').textContent = c.display;
+    document.querySelector('[data-body]').textContent = c.body;
+    document.querySelector('[data-cuando]').textContent = c.cuando;
+
+    chips.forEach(function (ch) {
+      ch.setAttribute('aria-pressed', String(ch.dataset.combo === clave));
+    });
+
+    // Deja el link listo para copiar a _build/plantilla.py
+    console.log(
+      'Combinación "' + c.nombre + '" — pegar en _build/plantilla.py:\n' +
+      'https://fonts.googleapis.com/css2?' + c.link + '&display=swap\n' +
+      '--font-display: "' + c.display + '", sans-serif;\n' +
+      '--font-body: "' + c.body + '", sans-serif;'
+    );
+  }
+
+  chips.forEach(function (ch) {
+    ch.addEventListener('click', function () { aplicar(ch.dataset.combo); });
+  });
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') return;
+    var actual = chips.findIndex(function (c) { return c.getAttribute('aria-pressed') === 'true'; });
+    var paso = e.key === 'ArrowRight' ? 1 : -1;
+    aplicar(orden[(actual + paso + orden.length) % orden.length]);
+  });
+
+  aplicar('bricolage');
+})();
+</script>
+</body>
+</html>

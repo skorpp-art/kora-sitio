@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ferretería Del Sur — Caso de ejemplo — KORA</title>
+  <meta name="description" content="Una ferretería de barrio que vendía sólo por WhatsApp pasó a tener catálogo online con carrito y un chatbot que atiende de noche.">
+  <meta name="theme-color" content="#0e100f">
+  <!-- Caso de ejemplo con datos ficticios: no debe indexarse hasta ser reemplazado por un caso real. Ver el aviso al inicio del body. -->
+  <meta name="robots" content="noindex, follow">
+
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="KORA">
+  <meta property="og:url" content="https://kora.com.ar/caso-ferreteria-del-sur.html">
+  <meta property="og:title" content="Ferretería Del Sur — Caso de ejemplo — KORA">
+  <meta property="og:description" content="Una ferretería de barrio que vendía sólo por WhatsApp pasó a tener catálogo online con carrito y un chatbot que atiende de noche.">
+  <meta property="og:image" content="https://kora.com.ar/img/og-kora.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:locale" content="es_AR">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Ferretería Del Sur — Caso de ejemplo — KORA">
+  <meta name="twitter:description" content="Una ferretería de barrio que vendía sólo por WhatsApp pasó a tener catálogo online con carrito y un chatbot que atiende de noche.">
+  <meta name="twitter:image" content="https://kora.com.ar/img/og-kora.png">
+
+  <link rel="icon" href="kora-icon-transparent.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Inter Tight: sustituto libre de Mori, la sans humanista de una sola
+       familia (400/500/600) que pide el sistema "pizarra GSAP". -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="kora.css">
+</head>
+<body>
+
+<!-- =====================================================================
+     CASO DE EJEMPLO — NO ES UN CLIENTE REAL
+
+     El cliente, las cifras, los plazos y la cita de esta página son
+     inventados. Sirven para que la sección exista y se vea terminada
+     mientras se consiguen casos de verdad.
+
+     Por eso la página lleva "noindex": mientras el contenido sea ficticio
+     no conviene que Google lo indexe ni que aparezca en búsquedas como si
+     fuera un resultado real.
+
+     AL REEMPLAZARLO POR UN CASO REAL:
+       1. Cambiar todos los textos y números por los verdaderos.
+       2. Pedirle al cliente permiso por escrito para publicarlo.
+       3. Borrar la línea <meta name="robots" content="noindex, follow">
+          de esta página y sumarla al sitemap.xml.
+       4. Sacar el cartel "Caso de ejemplo" del encabezado.
+     ===================================================================== -->
+
+  <div class="dotfield" data-dotfield aria-hidden="true"></div>
+  <div class="page-veil" data-veil aria-hidden="true"></div>
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
+  <div class="scroll-progress" data-progress aria-hidden="true"></div>
+
+  <!-- ============ FRANJA DE ANUNCIO ============ -->
+  <p class="announce">Agencia de desarrollo digital — Buenos Aires, Argentina</p>
+
+  <!-- ============ NAVBAR ============ -->
+  <header class="nav">
+    <div class="nav__inner">
+      <a class="nav__brand" href="index.html" aria-label="KORA — inicio">
+        <svg class="nav__mark" width="32" height="32" viewBox="0 0 128 128" aria-hidden="true" focusable="false">
+          <g transform="translate(0 9)">
+            <g fill="none" stroke="#fffce1" stroke-width="9">
+              <circle cx="64" cy="41" r="23"></circle>
+              <circle cx="83.92" cy="75.5" r="23"></circle>
+              <circle cx="44.08" cy="75.5" r="23"></circle>
+            </g>
+            <circle cx="64" cy="64" r="15" fill="#0AE448"></circle>
+            <circle cx="64" cy="18" r="11" fill="#0AE448"></circle>
+            <circle cx="103.84" cy="87" r="11" fill="#0AE448"></circle>
+            <circle cx="24.16" cy="87" r="11" fill="#0AE448"></circle>
+          </g>
+        </svg>
+        <span class="nav__wordmark">KORA</span>
+      </a>
+
+      <button class="nav__toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="nav-menu" aria-label="Abrir menú">
+        <span class="nav__toggle-bar"></span>
+        <span class="nav__toggle-bar"></span>
+        <span class="nav__toggle-bar"></span>
+      </button>
+
+      <nav class="nav__menu" id="nav-menu" aria-label="Navegación principal">
+        <ul class="nav__links">
+          <li class="nav__item nav__item--tiene-submenu">
+            <button class="nav__disparador" type="button" data-submenu aria-expanded="false" aria-controls="submenu-servicios">
+              Servicios
+              <span class="nav__chevron" aria-hidden="true"></span>
+            </button>
+            <ul class="submenu" id="submenu-servicios">
+            <li><a href="servicios-web.html">
+              <span class="submenu__titulo">Desarrollo web</span>
+              <span class="submenu__desc">Sitios y landings que convierten</span>
+            </a></li>
+            <li><a href="servicios-chatbots.html">
+              <span class="submenu__titulo">Chatbots</span>
+              <span class="submenu__desc">Atención automática 24/7</span>
+            </a></li>
+            <li><a href="servicios-apps.html">
+              <span class="submenu__titulo">Apps a medida</span>
+              <span class="submenu__desc">Software para tu operación</span>
+            </a></li>
+            </ul>
+          </li>
+          <li class="nav__item"><a href="casos.html">Casos</a></li>
+          <li class="nav__item"><a href="nosotros.html">Nosotros</a></li>
+          <li class="nav__item"><a href="precios.html">Precios</a></li>
+        </ul>
+        <a class="pill pill--sm nav__cta" href="contacto.html">Hablemos</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="contenido">
+
+    <section class="caso-hero">
+      <div class="caso-hero__inner">
+      <p class="aviso-demo">
+        <span class="aviso-demo__pin" aria-hidden="true"></span>
+        <span><strong>Caso de ejemplo.</strong> Cliente y cifras ficticios, para mostrar el formato. Los casos reales se publican con autorización del cliente.</span>
+      </p>
+        <span class="eyebrow">Retail</span>
+        <h1 class="caso-hero__titulo">Ferretería Del Sur</h1>
+        <p class="caso-hero__resumen">Una ferretería de barrio que vendía sólo por WhatsApp pasó a tener catálogo online con carrito y un chatbot que atiende de noche.</p>
+        <p class="caso-hero__metrica"><span>+40%</span> pedidos mensuales</p>
+      </div>
+      <figure class="caso-hero__figura">
+        <img src="img/case-ferreteria.svg" alt="Tienda online de Ferretería Del Sur: catálogo de productos con buscador, filtros, carrito y el widget del chatbot de atención." width="800" height="560" loading="eager">
+      </figure>
+    </section>
+
+    <section class="section" data-reveal>
+      <div class="caso-cuerpo">
+        <div class="prose">
+          <h2>El problema</h2>
+          <p>Del Sur vende ferretería y sanitarios en el conurbano desde hace más de veinte años. Toda la venta que no era mostrador pasaba por un único WhatsApp que atendía la dueña.</p>
+          <p>El problema no era la falta de consultas: eran demasiadas y desordenadas. Cada pedido implicaba tres o cuatro idas y vueltas para confirmar si había stock, cuánto salía y cómo se pagaba. Las consultas que entraban después de las 19 se contestaban al otro día, y para entonces buena parte ya había comprado en otro lado.</p>
+
+          <h2>Qué decidimos y por qué</h2>
+          <p>Acá está el criterio, que es lo que más se parece a lo que haríamos con tu proyecto:</p>
+        </div>
+        <div class="decision">
+          <h3 class="decision__titulo">Catálogo antes que tienda completa</h3>
+          <p class="decision__texto">No arrancamos por el carrito. Primero pusimos el catálogo con precios y stock visibles, porque la mitad de los mensajes eran justamente para preguntar eso. Bajó el volumen de consultas antes de vender un solo producto online.</p>
+        </div>
+        <div class="decision">
+          <h3 class="decision__titulo">Stock por sucursal, no total</h3>
+          <p class="decision__texto">Mostrar un stock general hubiera generado pedidos imposibles de cumplir. Se muestra por sucursal, aunque sea más difícil de mantener: es peor prometer y fallar que mostrar menos.</p>
+        </div>
+        <div class="decision">
+          <h3 class="decision__titulo">El chatbot atiende, no vende</h3>
+          <p class="decision__texto">Se limitó a responder precio, stock, horarios y envíos, y a derivar todo lo demás. Un bot que intenta cerrar ventas complejas de ferretería iba a dar respuestas equivocadas.</p>
+        </div>
+        <div class="prose">
+          <h2>La solución</h2>
+          <p>Un catálogo de 120 productos con búsqueda, filtros y stock por sucursal, carrito con retiro en local o envío, y un chatbot en la web y en WhatsApp que responde las cuatro preguntas de siempre y deriva el resto con el contexto ya cargado.</p>
+          <p>La carga de productos quedó en manos del equipo, con un panel simple y una capacitación de una hora.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--band" data-reveal>
+      <div class="section__inner">
+      <header class="section__head">
+        <span class="eyebrow">Resultados</span>
+        <h2 class="section__title">Qué se movió, con qué medida.</h2>
+      </header>
+        <div class="resultados">
+        <div class="resultado">
+          <p class="resultado__valor">+40%</p>
+          <p class="resultado__label">pedidos mensuales</p>
+        </div>
+        <div class="resultado">
+          <p class="resultado__valor">-65%</p>
+          <p class="resultado__label">consultas repetidas</p>
+        </div>
+        <div class="resultado">
+          <p class="resultado__valor">3 sem.</p>
+          <p class="resultado__label">de desarrollo</p>
+        </div>
+        <div class="resultado">
+          <p class="resultado__valor">24/7</p>
+          <p class="resultado__label">atención automática</p>
+        </div>
+        </div>
+        <p class="resultados__nota">Cifras de ejemplo. En un caso real acá va de dónde sale cada número y en qué período se midió.</p>
+
+        <figure class="cita-caso">
+          <blockquote>Antes vivíamos contestando lo mismo todo el día. Ahora el que pregunta el precio lo ve en la web, y el que escribe de noche recibe respuesta igual.</blockquote>
+          <figcaption><strong>Marina Gómez</strong> · Dueña, Ferretería Del Sur</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section" data-reveal>
+      <div class="caso-pie">
+        <div>
+          <h2 class="caso-pie__titulo">Servicios que usamos</h2>
+          <ul class="caso-pie__servicios">
+          <li><a href="servicios-web.html">Desarrollo web</a></li>
+          <li><a href="servicios-chatbots.html">Chatbots</a></li>
+          </ul>
+        </div>
+        <a class="link-underline" href="casos.html">Ver todos los casos</a>
+      </div>
+    </section>
+
+    <section class="cta">
+      <div class="cta__inner">
+        <div class="cta__copy">
+          <h2 class="cta__title">¿Tenés un problema parecido?</h2>
+          <p class="cta__text">Contanos en qué estás y te decimos si podemos ayudarte, con una propuesta concreta en 48 horas.</p>
+          <div class="cta__acciones">
+            <a class="btn btn--accent btn--xl" href="contacto.html">Empezar un proyecto</a>
+            <a class="cta__mail" href="https://wa.me/5491100000000?text=Hola%20KORA%2C%20quiero%20consultar%20por%20un%20proyecto." target="_blank" rel="noopener">o escribinos por WhatsApp</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <div class="wrap">
+      <div class="footer__grid">
+        <div>
+          <div class="footer__brand">
+            <svg width="28" height="28" viewBox="0 0 128 128" aria-hidden="true" focusable="false">
+          <g transform="translate(0 9)">
+            <g fill="none" stroke="#fffce1" stroke-width="9">
+              <circle cx="64" cy="41" r="23"></circle>
+              <circle cx="83.92" cy="75.5" r="23"></circle>
+              <circle cx="44.08" cy="75.5" r="23"></circle>
+            </g>
+            <circle cx="64" cy="64" r="15" fill="#0AE448"></circle>
+            <circle cx="64" cy="18" r="11" fill="#0AE448"></circle>
+            <circle cx="103.84" cy="87" r="11" fill="#0AE448"></circle>
+            <circle cx="24.16" cy="87" r="11" fill="#0AE448"></circle>
+          </g>
+        </svg>
+            <span class="footer__wordmark">KORA</span>
+          </div>
+          <p class="footer__about">Tu núcleo digital: web, chatbots y apps. Agencia de desarrollo para PyMEs argentinas, con proceso claro y resultados medibles.</p>
+        </div>
+
+        <nav class="footer__col footer__col--green" aria-labelledby="f-servicios">
+          <p class="footer__heading" id="f-servicios">Servicios</p>
+          <ul class="footer__list">
+            <li><a href="servicios-web.html">Desarrollo web</a></li>
+            <li><a href="servicios-chatbots.html">Chatbots</a></li>
+            <li><a href="servicios-apps.html">Apps a medida</a></li>
+            <li><a href="precios.html">Precios</a></li>
+          </ul>
+        </nav>
+
+        <nav class="footer__col footer__col--pink" aria-labelledby="f-compania">
+          <p class="footer__heading" id="f-compania">Compañía</p>
+          <ul class="footer__list">
+            <li><a href="nosotros.html">Nosotros</a></li>
+            <li><a href="casos.html">Casos</a></li>
+            <li><a href="index.html#faq">Preguntas frecuentes</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
+            <li><a href="privacidad.html">Política de privacidad</a></li>
+          </ul>
+        </nav>
+
+        <nav class="footer__col footer__col--lila" aria-labelledby="f-contacto">
+          <p class="footer__heading" id="f-contacto">Contacto</p>
+          <ul class="footer__list">
+            <li><a href="mailto:hola@kora.com.ar">hola@kora.com.ar</a></li>
+            <li><a href="https://wa.me/5491100000000" target="_blank" rel="noopener">WhatsApp</a></li>
+          </ul>
+        </nav>
+      </div>
+
+      <div class="footer__legal">
+        <p>© 2026 KORA. Todos los derechos reservados. CUIT 30-00000000-0.</p>
+        <p>Buenos Aires, Argentina</p>
+      </div>
+    </div>
+  </footer>
+
+  <a class="wa-fab" href="https://wa.me/5491100000000?text=Hola%20KORA%2C%20quiero%20consultar%20por%20un%20proyecto."
+     target="_blank" rel="noopener" data-wa-fab aria-label="Escribinos por WhatsApp">
+    <svg class="wa-fab__icon" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884a9.82 9.82 0 0 1 6.988 2.896 9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.885-9.885 9.885M20.52 3.449C18.24 1.245 15.24 0 12.045 0 5.463 0 .104 5.359.101 11.943c0 2.096.549 4.142 1.593 5.945L0 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.582 0 11.941-5.359 11.944-11.945a11.87 11.87 0 0 0-3.487-8.4"/>
+    </svg>
+    <span class="wa-fab__label">Hablemos por WhatsApp</span>
+  </a>
+
+  <!-- GSAP self-hosteado (vendor/gsap/), no CDN — mismo criterio que todo
+       lo demás: nada que dependa de que un tercero siga sirviendo el
+       archivo. Va antes de kora.js porque kora.js lo usa si está
+       disponible, pero la página entera se ve completa igual si estos dos
+       archivos no cargaran (ver la guarda `if (!GSAP_OK) return;` al
+       principio de cada función que los usa). -->
+  <script src="vendor/gsap/gsap.min.js" defer></script>
+  <script src="vendor/gsap/ScrollTrigger.min.js" defer></script>
+  <script src="kora.js" defer></script>
+</body>
+</html>

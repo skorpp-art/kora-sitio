@@ -1,0 +1,410 @@
+    <!-- ============ HERO ============ -->
+    <section class="hero" data-hero>
+      <!-- Formas flotantes con gradiente, como las del hero de gsap.com -->
+      <div class="hero__shape hero__shape--pin" aria-hidden="true">
+        <svg data-float viewBox="0 0 100 100" focusable="false">
+          <defs>
+            <linearGradient id="pinGrad" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#ff8709"></stop>
+              <stop offset="1" stop-color="#f100cb"></stop>
+            </linearGradient>
+          </defs>
+          <g fill="url(#pinGrad)">
+            <path d="M50 50 50 10 A40 40 0 0 1 78.28 21.72 Z"></path>
+            <path d="M50 50 78.28 21.72 A40 40 0 0 1 90 50 Z" transform="rotate(45 50 50)"></path>
+            <path d="M50 50 50 10 A40 40 0 0 1 78.28 21.72 Z" transform="rotate(90 50 50)"></path>
+            <path d="M50 50 78.28 21.72 A40 40 0 0 1 90 50 Z" transform="rotate(135 50 50)"></path>
+            <path d="M50 50 50 10 A40 40 0 0 1 78.28 21.72 Z" transform="rotate(180 50 50)"></path>
+            <path d="M50 50 78.28 21.72 A40 40 0 0 1 90 50 Z" transform="rotate(225 50 50)"></path>
+            <path d="M50 50 50 10 A40 40 0 0 1 78.28 21.72 Z" transform="rotate(270 50 50)"></path>
+            <path d="M50 50 78.28 21.72 A40 40 0 0 1 90 50 Z" transform="rotate(315 50 50)"></path>
+          </g>
+        </svg>
+      </div>
+      <div class="hero__shape hero__shape--orb" aria-hidden="true">
+        <div class="hero__orb-visual" data-float></div>
+      </div>
+      <div class="hero__shape hero__shape--ring" aria-hidden="true">
+        <svg data-float viewBox="0 0 120 120" focusable="false">
+          <defs>
+            <linearGradient id="ringGrad" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#abff84"></stop>
+              <stop offset="1" stop-color="#0AE448"></stop>
+            </linearGradient>
+          </defs>
+          <circle cx="60" cy="60" r="46" fill="none" stroke="url(#ringGrad)" stroke-width="15"></circle>
+        </svg>
+      </div>
+
+      <div class="wrap hero__copy">
+        <h1 class="hero__title">
+          <span class="hero__line-mask"><span class="hero__line hero__line--static">Hacemos</span></span>
+          <span class="rotador" data-rotador>
+            <span class="sr-only">webs que convierten visitas en clientes, chatbots que atienden y venden las 24 horas y apps que ordenan tu operación.</span>
+            <span class="rotador__item is-activa" data-service="web" aria-hidden="true">
+              <span class="hero__line-mask"><span class="hero__line rotador__word">webs</span></span>
+              <span class="hero__line-mask"><span class="hero__line">que convierten.</span></span>
+            </span>
+            <span class="rotador__item" data-service="chatbots" aria-hidden="true">
+              <span class="hero__line-mask"><span class="hero__line rotador__word">chatbots</span></span>
+              <span class="hero__line-mask"><span class="hero__line">que venden 24/7.</span></span>
+            </span>
+            <span class="rotador__item" data-service="apps" aria-hidden="true">
+              <span class="hero__line-mask"><span class="hero__line rotador__word">apps</span></span>
+              <span class="hero__line-mask"><span class="hero__line">que ordenan.</span></span>
+            </span>
+          </span>
+        </h1>
+
+        <div class="hero__below hero__fade">
+          <p class="braces">
+            <span class="braces__brace" aria-hidden="true">{</span>
+            <span class="braces__note">Agencia argentina para PyMEs — proceso claro y presupuesto cerrado antes de arrancar.</span>
+            <span class="braces__brace" aria-hidden="true">}</span>
+          </p>
+          <div class="hero__actions">
+            <a class="pill" href="#contacto">Empezar un proyecto</a>
+            <a class="link-hi" href="casos.html">Ver casos de éxito</a>
+          </div>
+        </div>
+
+        <dl class="hero__facts hero__fade">
+          <div class="hero__fact">
+            <dt class="hero__fact-value">24 h</dt>
+            <dd class="hero__fact-label">Tiempo de respuesta</dd>
+          </div>
+          <div class="hero__fact">
+            <dt class="hero__fact-value">Presupuesto cerrado</dt>
+            <dd class="hero__fact-label">Antes de arrancar</dd>
+          </div>
+          <div class="hero__fact">
+            <dt class="hero__fact-value">5 etapas</dt>
+            <dd class="hero__fact-label">Proceso siempre igual</dd>
+          </div>
+        </dl>
+      </div>
+    </section>
+
+    <!-- ============ MANIFIESTO ============ -->
+    <section class="sec sec--line">
+      <div class="wrap">
+        <p class="manifesto">Diseñamos y desarrollamos webs, chatbots y apps para PyMEs que quieren <em>resultados medibles</em>, no promesas.</p>
+      </div>
+    </section>
+
+    <!-- ============ LO QUE HACEMOS ============ -->
+    <section class="sec sec--line" id="servicios">
+      <div class="wrap">
+        <header class="sec__head" data-reveal>
+          <span class="tag">Lo que hacemos</span>
+          <h2 class="h2">Tres formas de resolver<br>tu problema digital.</h2>
+        </header>
+
+        <!-- Web = verde · Chatbots = naranja · Apps = lila:
+             el color clasifica el servicio en toda la página -->
+        <article class="svc svc--web" data-reveal>
+          <div class="svc__shape"><span class="shape-orb shape-orb--web" data-float></span></div>
+          <div>
+            <h3 class="svc__label">Web</h3>
+            <p class="svc__desc">Sitios y landing pages diseñados para convertir, no solo para verse bien.</p>
+            <a class="pill pill--sm" href="servicios-web.html">Conocer más <span class="pill__arrow" aria-hidden="true">&rarr;</span></a>
+          </div>
+        </article>
+
+        <article class="svc svc--chat" data-reveal>
+          <div class="svc__shape"><span class="shape-orb shape-orb--chat" data-float></span></div>
+          <div>
+            <h3 class="svc__label">Chatbots</h3>
+            <p class="svc__desc">Atención automática que responde consultas y agenda ventas 24/7.</p>
+            <a class="pill pill--sm" href="servicios-chatbots.html">Conocer más <span class="pill__arrow" aria-hidden="true">&rarr;</span></a>
+          </div>
+        </article>
+
+        <article class="svc svc--apps" data-reveal>
+          <div class="svc__shape">
+            <span class="shape-duo" data-float>
+              <span class="shape-duo__sq"></span>
+              <span class="shape-duo__dot"></span>
+            </span>
+          </div>
+          <div>
+            <h3 class="svc__label">Apps</h3>
+            <p class="svc__desc">Aplicaciones a medida para gestionar tu operación o llegar a tus clientes.</p>
+            <a class="pill pill--sm" href="servicios-apps.html">Conocer más <span class="pill__arrow" aria-hidden="true">&rarr;</span></a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ============ NÚMEROS ============ -->
+    <section class="sec sec--line">
+      <div class="wrap">
+        <dl class="stats" data-reveal>
+          <div class="stats__cell">
+            <dt class="stats__value" data-count="48" data-prefix="" data-suffix=""
+                data-tooltip="Proyectos cerrados y entregados entre 2023 y 2025.">48</dt>
+            <dd class="stats__label">Proyectos entregados</dd>
+          </div>
+          <div class="stats__cell">
+            <dt class="stats__value" data-count="2.8" data-prefix="" data-suffix="x"
+                data-tooltip="Medido sobre los clientes que ya tenían web y la rehicieron con nosotros.">2.8x</dt>
+            <dd class="stats__label">Conversión promedio vs. web anterior</dd>
+          </div>
+          <div class="stats__cell">
+            <dt class="stats__value" data-count="24" data-prefix="" data-suffix=" h"
+                data-tooltip="Máximo que tardamos en responder una consulta en días hábiles.">24 h</dt>
+            <dd class="stats__label">Tiempo de respuesta</dd>
+          </div>
+          <div class="stats__cell">
+            <dt class="stats__value" data-count="92" data-prefix="" data-suffix="%"
+                data-tooltip="Clientes que nos contrataron un segundo proyecto.">92%</dt>
+            <dd class="stats__label">Clientes que vuelven a contratar</dd>
+          </div>
+        </dl>
+      </div>
+    </section>
+
+    <!-- ============ PROCESO ============ -->
+    <section class="sec sec--line" id="proceso">
+      <div class="wrap">
+        <header class="sec__head" data-reveal>
+          <span class="tag tag--pink">Cómo trabajamos</span>
+          <h2 class="h2">Un proceso simple, sin vueltas.</h2>
+        </header>
+
+        <ol class="steps">
+          <li class="steps__item">
+            <span class="steps__n" data-tooltip="Reunión de 45 minutos. Salís con el problema escrito en una hoja.">1</span>
+            <h3 class="steps__title">Brief</h3>
+            <p class="steps__text">Entendemos tu negocio, objetivos y público.</p>
+          </li>
+          <li class="steps__item">
+            <span class="steps__n" data-tooltip="Documento con alcance, plazos y precio cerrado. Vale 15 días.">2</span>
+            <h3 class="steps__title">Propuesta</h3>
+            <p class="steps__text">Alcance y presupuesto cerrado, sin sorpresas.</p>
+          </li>
+          <li class="steps__item">
+            <span class="steps__n" data-tooltip="Wireframes y diseño aprobado antes de escribir una línea de código.">3</span>
+            <h3 class="steps__title">Diseño</h3>
+            <p class="steps__text">Definimos la experiencia antes de programar nada.</p>
+          </li>
+          <li class="steps__item">
+            <span class="steps__n" data-tooltip="Entorno de prueba online desde la primera semana para que lo veas crecer.">4</span>
+            <h3 class="steps__title">Desarrollo</h3>
+            <p class="steps__text">Construimos con avances visibles cada semana.</p>
+          </li>
+          <li class="steps__item">
+            <span class="steps__n" data-tooltip="Puesta en producción, capacitación y 30 días de soporte incluidos.">5</span>
+            <h3 class="steps__title">Entrega</h3>
+            <p class="steps__text">Lanzamos, medimos y acompañamos el resultado.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ============ CASOS ============ -->
+    <section class="sec sec--line" id="portfolio">
+      <div class="wrap">
+        <header class="sec__head sec__head--con-link" data-reveal>
+          <div>
+            <span class="tag tag--lila">Casos</span>
+            <h2 class="h2">Casos con resultados,<br>no solo pantallas.</h2>
+          </div>
+          <a class="link-hi" href="casos.html">Ver todos los casos</a>
+        </header>
+
+        <div class="cases">
+          <a class="case case--green" href="caso-ferreteria-del-sur.html" data-reveal>
+            <span class="case__tag">Retail</span>
+            <h3 class="case__name">Ferretería Del Sur</h3>
+            <p class="case__text">Vendían solo por WhatsApp y perdían pedidos fuera de horario.</p>
+            <p class="case__metric">+40%<span class="case__metric-label">pedidos mensuales</span></p>
+            <span class="case__link">Ver el caso <span aria-hidden="true">&rarr;</span></span>
+          </a>
+          <a class="case case--orange" href="caso-estudio-vega.html" data-reveal>
+            <span class="case__tag">Servicios profesionales</span>
+            <h3 class="case__name">Estudio Contable Vega</h3>
+            <p class="case__text">Web desactualizada, cero consultas nuevas por mes.</p>
+            <p class="case__metric">3.2x<span class="case__metric-label">más consultas</span></p>
+            <span class="case__link">Ver el caso <span aria-hidden="true">&rarr;</span></span>
+          </a>
+          <a class="case case--lila" href="caso-nutri-delivery.html" data-reveal>
+            <span class="case__tag">Alimentos</span>
+            <h3 class="case__name">Nutrí Delivery</h3>
+            <p class="case__text">Proceso de pedidos manual y lento por teléfono.</p>
+            <p class="case__metric">&minus;60%<span class="case__metric-label">tiempo por pedido</span></p>
+            <span class="case__link">Ver el caso <span aria-hidden="true">&rarr;</span></span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PREGUNTAS FRECUENTES ============ -->
+    <section class="sec sec--line" id="faq">
+      <div class="wrap">
+        <header class="sec__head" data-reveal>
+          <span class="tag tag--orange">Preguntas frecuentes</span>
+          <h2 class="h2">Lo que todos preguntan<br>antes de arrancar.</h2>
+        </header>
+
+        <div class="faq">
+          <div class="faq__item">
+            <h3 class="faq__q">
+              <button class="faq__trigger" type="button" aria-expanded="false" aria-controls="faq-1" id="faq-1-btn">
+                <span>¿Cuánto sale una web?</span>
+                <span class="faq__icon" aria-hidden="true"></span>
+              </button>
+            </h3>
+            <div class="faq__panel" id="faq-1" role="region" aria-labelledby="faq-1-btn">
+              <div class="faq__body">
+                <!-- Recomendado: agregar acá un rango real ("desde $X") — es la
+                     objeción número uno y filtra consultas que no van a cerrar. -->
+                <p>Depende de tres cosas: cuántas pantallas tiene, si necesita funciones a medida (carrito, reservas, panel de administración, integraciones con tu sistema de gestión) y quién produce los contenidos.</p>
+                <p>No trabajamos por hora ni con presupuestos abiertos. Después de la primera reunión te pasamos un número cerrado y una fecha de entrega, y ese número no se mueve salvo que vos pidas agregar algo que no estaba en el alcance.</p>
+              </div>
+            </div>
+          </div>
+          <div class="faq__item">
+            <h3 class="faq__q">
+              <button class="faq__trigger" type="button" aria-expanded="false" aria-controls="faq-2" id="faq-2-btn">
+                <span>¿Cuánto tarda?</span>
+                <span class="faq__icon" aria-hidden="true"></span>
+              </button>
+            </h3>
+            <div class="faq__panel" id="faq-2" role="region" aria-labelledby="faq-2-btn">
+              <div class="faq__body">
+                <p>Una landing o un sitio institucional suele estar en <strong>3 a 5 semanas</strong>. Una tienda online o una app a medida, entre <strong>8 y 12</strong>.</p>
+                <p>La fecha te la damos en la propuesta, antes de que firmes nada. Lo que más suele demorar los proyectos no es el desarrollo: son los textos y las fotos. Si eso ya lo tenés listo, se acorta bastante.</p>
+              </div>
+            </div>
+          </div>
+          <div class="faq__item">
+            <h3 class="faq__q">
+              <button class="faq__trigger" type="button" aria-expanded="false" aria-controls="faq-3" id="faq-3-btn">
+                <span>¿Y si no me gusta el diseño?</span>
+                <span class="faq__icon" aria-hidden="true"></span>
+              </button>
+            </h3>
+            <div class="faq__panel" id="faq-3" role="region" aria-labelledby="faq-3-btn">
+              <div class="faq__body">
+                <p>Por eso diseñamos antes de programar. En la etapa de diseño ves las pantallas terminadas y tenés <strong>dos rondas de cambios incluidas</strong>, sin costo. Recién cuando aprobás, se empieza a construir.</p>
+                <p>Así nadie descubre a último momento que la web no era lo que tenía en la cabeza, que es cuando los cambios salen caros.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <p class="faq__mas">Cada servicio tiene sus propias preguntas: <a href="servicios-web.html">web</a>, <a href="servicios-chatbots.html">chatbots</a> y <a href="servicios-apps.html">apps</a>. Y las dudas de plata están en <a href="precios.html">precios</a>.</p>
+      </div>
+    </section>
+
+    <!-- ============ CONTACTO ============ -->
+    <section class="sec sec--line" id="contacto">
+      <div class="wrap">
+        <span class="tag" data-reveal>Contacto</span>
+        <h2 class="contact__title" data-reveal>¿Hablamos?</h2>
+
+        <div class="contact__grid">
+          <div data-reveal>
+            <p class="contact__text">Contanos qué necesitás y te respondemos en menos de 24 horas con una propuesta concreta.</p>
+
+            <ul class="channels">
+              <li>
+                <a class="channel" href="https://wa.me/5491100000000?text=Hola%20KORA%2C%20quiero%20consultar%20por%20un%20proyecto." target="_blank" rel="noopener">
+                  <span class="channel__icon" aria-hidden="true">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" focusable="false">
+                      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884a9.82 9.82 0 0 1 6.988 2.896 9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.885-9.885 9.885M20.52 3.449C18.24 1.245 15.24 0 12.045 0 5.463 0 .104 5.359.101 11.943c0 2.096.549 4.142 1.593 5.945L0 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.582 0 11.941-5.359 11.944-11.945a11.87 11.87 0 0 0-3.487-8.4"/>
+                    </svg>
+                  </span>
+                  <span class="channel__body">
+                    <span class="channel__label">Escribinos por WhatsApp</span>
+                    <span class="channel__meta">Lun a vie de 9 a 18 h</span>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a class="channel" href="mailto:hola@kora.com.ar?subject=Consulta%20desde%20la%20web">
+                  <span class="channel__icon" aria-hidden="true">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" focusable="false">
+                      <rect x="2.5" y="5" width="19" height="14" rx="2.5"></rect>
+                      <path d="m3 7 9 6 9-6" stroke-linecap="round" stroke-linejoin="round"></path>
+                    </svg>
+                  </span>
+                  <span class="channel__body">
+                    <span class="channel__label">hola@kora.com.ar</span>
+                    <span class="channel__meta">Respondemos en menos de 24 h</span>
+                  </span>
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="form-card" data-reveal>
+            <form class="form" id="form-contacto" data-contact-form novalidate
+                  action="mailto:hola@kora.com.ar" method="post" enctype="text/plain">
+              <p class="form__title">Contanos qué necesitás</p>
+
+              <div class="field">
+                <label class="field__label" for="c-nombre">Nombre y apellido <span class="field__req" aria-hidden="true">*</span></label>
+                <input class="field__input" type="text" id="c-nombre" name="nombre" autocomplete="name" required
+                       aria-describedby="c-nombre-error">
+                <p class="field__error" id="c-nombre-error" data-error-for="nombre"></p>
+              </div>
+
+              <div class="field-row">
+                <div class="field">
+                  <label class="field__label" for="c-email">Email <span class="field__req" aria-hidden="true">*</span></label>
+                  <input class="field__input" type="email" id="c-email" name="email" autocomplete="email" required
+                         aria-describedby="c-email-error">
+                  <p class="field__error" id="c-email-error" data-error-for="email"></p>
+                </div>
+
+                <div class="field">
+                  <label class="field__label" for="c-tel">Teléfono / WhatsApp</label>
+                  <input class="field__input" type="tel" id="c-tel" name="telefono" autocomplete="tel"
+                         placeholder="11 0000-0000">
+                </div>
+              </div>
+
+              <div class="field">
+                <label class="field__label" for="c-tipo">¿Qué estás buscando?</label>
+                <select class="field__input field__input--select" id="c-tipo" name="tipo">
+                  <option value="Web">Una web o landing page</option>
+                  <option value="Chatbot">Un chatbot de atención</option>
+                  <option value="App">Una app a medida</option>
+                  <option value="Rediseño">Rediseñar lo que ya tengo</option>
+                  <option value="No estoy seguro">Todavía no lo tengo claro</option>
+                </select>
+              </div>
+
+              <div class="field">
+                <label class="field__label" for="c-mensaje">Contanos brevemente <span class="field__req" aria-hidden="true">*</span></label>
+                <textarea class="field__input field__input--area" id="c-mensaje" name="mensaje" rows="4" required
+                          aria-describedby="c-mensaje-error"
+                          placeholder="Qué hace tu negocio, qué necesitás resolver y para cuándo."></textarea>
+                <p class="field__error" id="c-mensaje-error" data-error-for="mensaje"></p>
+              </div>
+
+              <!-- Trampa anti-spam: invisible para personas, tentadora para bots -->
+              <div class="form__honeypot" aria-hidden="true">
+                <label for="c-web">No completar</label>
+                <input type="text" id="c-web" name="web" tabindex="-1" autocomplete="off">
+              </div>
+
+              <button class="pill" type="submit" data-submit>Enviar consulta</button>
+              <p class="form__note">Te respondemos en menos de 24 horas hábiles. Sin spam, sin listas de correo. Al enviar aceptás nuestra <a href="privacidad.html">política de privacidad</a>.</p>
+            </form>
+
+            <div class="form-success" data-form-success hidden role="status" aria-live="polite">
+              <span class="form-success__mark" aria-hidden="true">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" focusable="false">
+                  <path d="m4 12.5 5.5 5.5L20 7" stroke-linecap="round" stroke-linejoin="round"></path>
+                </svg>
+              </span>
+              <p class="form-success__title">¡Listo, recibimos tu consulta!</p>
+              <p class="form-success__text" data-success-text>Te escribimos a tu casilla dentro de las próximas 24 horas hábiles.</p>
+              <button class="link-button" type="button" data-form-reset>Enviar otra consulta</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
