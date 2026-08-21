@@ -1,0 +1,8 @@
+# Las plantillas son documentos internos de venta, no contenido del sitio.
+# Quedan versionadas en el repo, pero no se suben al deploy: si no,
+# cualquiera podría bajarlas desde kora-sitio.vercel.app/plantillas/.
+plantillas/
+
+# El generador tampoco hace falta en el servidor: las páginas que sirve
+# Vercel son HTML estático ya generado.
+_build/
