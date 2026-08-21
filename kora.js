@@ -572,28 +572,40 @@
     if (window.matchMedia('(hover: none)').matches) return;
 
     var activo = false;
-    var mx = 0;
-    var my = 0;
-    var pintarProgramado = false;
+    var pos = { mx: 0, my: 0 };
 
     function pintar() {
-      campo.style.setProperty('--mx', mx + 'px');
-      campo.style.setProperty('--my', my + 'px');
-      pintarProgramado = false;
+      campo.style.setProperty('--mx', pos.mx + 'px');
+      campo.style.setProperty('--my', pos.my + 'px');
     }
 
-    window.addEventListener('mousemove', function (e) {
-      mx = e.clientX;
-      my = e.clientY;
-      if (!activo) {
-        activo = true;
-        campo.classList.add('is-active');
-      }
-      if (!pintarProgramado) {
-        pintarProgramado = true;
-        requestAnimationFrame(pintar);
-      }
-    }, { passive: true });
+    if (window.gsap) {
+      /* Con GSAP: quickTo hace que "pos" persiga al mouse con inercia en
+         vez de copiar su posición al pixel. El halo queda una fracción
+         de segundo atrás del cursor — eso es lo que lo hace sentir un
+         objeto físico y no un tooltip que teletransporta. */
+      var seguirX = gsap.quickTo(pos, 'mx', { duration: 0.35, ease: 'power3', onUpdate: pintar });
+      var seguirY = gsap.quickTo(pos, 'my', { duration: 0.35, ease: 'power3', onUpdate: pintar });
+
+      window.addEventListener('mousemove', function (e) {
+        if (!activo) { activo = true; campo.classList.add('is-active'); }
+        seguirX(e.clientX);
+        seguirY(e.clientY);
+      }, { passive: true });
+    } else {
+      /* Sin GSAP: el halo sigue al cursor sin suavizado, pero el fondo
+         interactivo sigue andando igual. */
+      var pintarProgramado = false;
+      window.addEventListener('mousemove', function (e) {
+        pos.mx = e.clientX;
+        pos.my = e.clientY;
+        if (!activo) { activo = true; campo.classList.add('is-active'); }
+        if (!pintarProgramado) {
+          pintarProgramado = true;
+          requestAnimationFrame(function () { pintar(); pintarProgramado = false; });
+        }
+      }, { passive: true });
+    }
 
     document.addEventListener('mouseleave', function () {
       activo = false;
@@ -624,28 +636,49 @@
   var GSAP_OK = !!(window.gsap && window.ScrollTrigger) && !reduceMotion;
   if (GSAP_OK) gsap.registerPlugin(ScrollTrigger);
 
-  /* A. La marca se dibuja al cargar (tres anillos trazados + núcleo) */
+  /* A. La marca se construye al cargar.
+     Primero aparece el núcleo, después los tres radios se dibujan hacia
+     afuera, y cada nodo entra justo cuando su radio termina de llegar: la
+     red se arma desde el centro, que es literalmente lo que dice la marca
+     ("tu núcleo digital" y sus tres servicios).
+
+     La versión anterior trazaba tres circunferencias que ya no existen en
+     el dibujo. Estos son segmentos rectos, que se trazan igual con
+     stroke-dashoffset pero se leen mucho mejor a 40px.
+
+     Los selectores van por clase (.iso__radio, .iso__nodo, .iso__nucleo) y
+     no por posición en el árbol: si mañana se reordena el SVG, esto sigue
+     encontrando lo que busca en vez de animar el elemento equivocado. */
   function initMarcaAnimada() {
     if (!GSAP_OK) return;
     var marca = document.querySelector('svg.nav__mark');
     if (!marca) return;
 
-    var anillos = marca.querySelectorAll('g g circle');
-    var relleno = marca.querySelectorAll(':scope > g > circle');
-    if (!anillos.length) return;
+    var nucleo = marca.querySelector('.iso__nucleo');
+    var radios = marca.querySelectorAll('.iso__radio');
+    var nodos = marca.querySelectorAll('.iso__nodo');
+    if (!nucleo || !radios.length || !nodos.length) return;
 
     var tl = gsap.timeline({ delay: 0.15 });
 
-    anillos.forEach(function (c, i) {
-      var largo = c.getTotalLength();
-      gsap.set(c, { strokeDasharray: largo, strokeDashoffset: largo });
-      tl.to(c, { strokeDashoffset: 0, duration: 0.55, ease: 'power2.inOut' }, i * 0.12);
+    /* transformOrigin en porcentaje —y no 'center'— para que cada círculo
+       escale sobre SU propio centro: los nodos están en tres posiciones
+       distintas del viewBox, no en el medio. */
+    gsap.set([nucleo, nodos], { transformOrigin: '50% 50%', scale: 0 });
+
+    tl.to(nucleo, { scale: 1, duration: 0.45, ease: 'back.out(2)' }, 0);
+
+    radios.forEach(function (radio, i) {
+      var largo = radio.getTotalLength();
+      gsap.set(radio, { strokeDasharray: largo, strokeDashoffset: largo });
+      tl.to(radio, { strokeDashoffset: 0, duration: 0.4, ease: 'power2.out' },
+        0.25 + i * 0.1);
     });
 
-    gsap.set(relleno, { opacity: 0, scale: 0.4, transformOrigin: 'center' });
-    tl.to(relleno, {
-      opacity: 1, scale: 1, duration: 0.4, ease: 'back.out(2)', stagger: 0.08
-    }, 0.35);
+    nodos.forEach(function (nodo, i) {
+      tl.to(nodo, { scale: 1, duration: 0.35, ease: 'back.out(2.2)' },
+        0.55 + i * 0.1);
+    });
   }
 
   /* B. Entrada del hero: línea fija con máscara + bloques escalonados.
@@ -723,8 +756,8 @@
 
     var motores = capas.map(function (capa, i) {
       return {
-        x: gsap.quickTo(capa, 'x', { duration: 0.9, ease: 'power3' }),
-        y: gsap.quickTo(capa, 'y', { duration: 0.9, ease: 'power3' }),
+        x: gsap.quickTo(capa, 'x', { duration: 0.5, ease: 'power3' }),
+        y: gsap.quickTo(capa, 'y', { duration: 0.5, ease: 'power3' }),
         profundidad: (i + 1) * 10
       };
     });
@@ -842,7 +875,7 @@
         y: 30,
         duration: 0.75,
         ease: 'power3.out',
-        stagger: hijos.length ? 0.08 : 0,
+        stagger: hijos.length ? 0.04 : 0,
         scrollTrigger: { trigger: el, start: 'top 84%', once: true }
       });
     });

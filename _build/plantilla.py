@@ -15,6 +15,7 @@ Sistema visual: "Pizarra GSAP" (lienzo casi negro, crema, verde de marca,
 Inter Tight). Todo vive en kora.css + kora.js, una sola hoja y un solo
 script para las trece páginas.
 """
+import math
 
 DOMINIO = "https://kora.com.ar"        # ← cambiar por el dominio real
 EMAIL = "hola@kora.com.ar"
@@ -30,22 +31,58 @@ LIENZO = "#0e100f"
 
 # --------------------------------------------------------------------------
 # Isotipo
-# Tres anillos crema entrelazados, núcleo y nodos en verde. Es el mismo
-# dibujo de siempre, recoloreado al sistema nuevo.
+# Un núcleo dominante con tres nodos alrededor: KORA ("tu núcleo digital",
+# como dice el pie) con sus tres servicios colgando de él.
+#
+# El dibujo anterior eran tres circunferencias finas superpuestas. A 32px
+# los trazos se fundían entre sí y quedaba una mancha ilegible — el logo
+# pasaba desapercibido justo en el único tamaño en que la gente lo ve.
+# Este tiene cuatro formas sólidas separadas por aire, que es lo que
+# aguanta el tamaño chico.
+#
+# El núcleo mide más del doble que cada nodo a propósito: si los cuatro
+# círculos fueran parecidos, el dibujo diría "cuatro cosas" en vez de
+# "una cosa con tres ramas".
+#
+# La geometría se calcula, no se escribe a mano, así la simetría es
+# exacta y cambiar una medida no obliga a recalcular las otras.
 # --------------------------------------------------------------------------
-def isotipo(tam, anillo=CREMA, nucleo=VERDE, nodo=VERDE, clase=""):
+CENTRO = 64.0
+ANGULOS_NODOS = (-90.0, 30.0, 150.0)   # uno arriba y dos abajo: apoya mejor
+DIST_NODO = 54.0
+R_NODO = 12.0
+R_NUCLEO = 25.0
+GROSOR_RADIO = 9.0
+DESPLAZAMIENTO_Y = 13.5   # centra ópticamente el conjunto dentro del viewBox
+
+
+def _nodo_xy(grados):
+    rad = math.radians(grados)
+    return (CENTRO + DIST_NODO * math.cos(rad), CENTRO + DIST_NODO * math.sin(rad))
+
+
+def isotipo(tam, radio=CREMA, nucleo=VERDE, nodo=VERDE, clase=""):
     cls = ' class="%s"' % clase if clase else ""
+    coords = [_nodo_xy(a) for a in ANGULOS_NODOS]
+
+    radios = "\n".join(
+        f'              <line class="iso__radio" x1="{CENTRO:.0f}" y1="{CENTRO:.0f}"'
+        f' x2="{x:.2f}" y2="{y:.2f}"></line>'
+        for x, y in coords
+    )
+    nodos = "\n".join(
+        f'            <circle class="iso__nodo" cx="{x:.2f}" cy="{y:.2f}"'
+        f' r="{R_NODO:.0f}" fill="{nodo}"></circle>'
+        for x, y in coords
+    )
+
     return f"""<svg{cls} width="{tam}" height="{tam}" viewBox="0 0 128 128" aria-hidden="true" focusable="false">
-          <g transform="translate(0 9)">
-            <g fill="none" stroke="{anillo}" stroke-width="9">
-              <circle cx="64" cy="41" r="23"></circle>
-              <circle cx="83.92" cy="75.5" r="23"></circle>
-              <circle cx="44.08" cy="75.5" r="23"></circle>
+          <g transform="translate(0 {DESPLAZAMIENTO_Y})">
+            <g stroke="{radio}" stroke-width="{GROSOR_RADIO:.0f}" stroke-linecap="round">
+{radios}
             </g>
-            <circle cx="64" cy="64" r="15" fill="{nucleo}"></circle>
-            <circle cx="64" cy="18" r="11" fill="{nodo}"></circle>
-            <circle cx="103.84" cy="87" r="11" fill="{nodo}"></circle>
-            <circle cx="24.16" cy="87" r="11" fill="{nodo}"></circle>
+{nodos}
+            <circle class="iso__nucleo" cx="{CENTRO:.0f}" cy="{CENTRO:.0f}" r="{R_NUCLEO:.0f}" fill="{nucleo}"></circle>
           </g>
         </svg>"""
 
@@ -142,7 +179,7 @@ def navegacion(actual):
   <header class="nav">
     <div class="nav__inner">
       <a class="nav__brand" href="index.html" aria-label="KORA — inicio">
-        {isotipo(32, clase='nav__mark')}
+        {isotipo(40, clase='nav__mark')}
         <span class="nav__wordmark">KORA</span>
       </a>
 
@@ -187,7 +224,7 @@ def pie():
       <div class="footer__grid">
         <div>
           <div class="footer__brand">
-            {isotipo(28)}
+            {isotipo(34)}
             <span class="footer__wordmark">KORA</span>
           </div>
           <p class="footer__about">Tu núcleo digital: web, chatbots y apps. Agencia de desarrollo para PyMEs argentinas, con proceso claro y resultados medibles.</p>

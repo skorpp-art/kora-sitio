@@ -167,5 +167,5 @@ if __name__ == "__main__":
     print("\nListo. Recordá revisar los marcadores pendientes:")
     print("  · dominio real en _build/plantilla.py (DOMINIO)")
     print("  · número de WhatsApp real (WHATSAPP)")
-    print("  · rangos de precio en _build/paginas_b.py (buscar 'A completar')")
+    print("  · revisar si los precios de _build/paginas_b.py siguen vigentes (quedaron cargados en agosto de 2026)")
     print("  · fotos y nombres del equipo en NOSOTROS")

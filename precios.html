@@ -36,20 +36,10 @@
 <body>
 
 <!-- =====================================================================
-     PRECIOS — FALTAN LOS NÚMEROS
-
-     Los rangos están como "A completar" a propósito: poner un número
-     inventado sería peor que dejarlo vacío, porque es un compromiso
-     comercial que después hay que sostener.
-
-     PARA COMPLETAR: buscar en esta página los tres <span class="precio__valor">
-     y reemplazar "A completar" por el rango real.
-
-     Dos sugerencias, por si sirven:
-       · Un rango ("de X a Y") funciona mejor que un "desde X" solo: el
-         "desde" siempre se lee como el precio final y después decepciona.
-       · Si la inflación complica publicar pesos, se puede expresar en
-         dólares o en una unidad indexada y aclararlo al lado.
+     PRECIOS — valores fijos en pesos argentinos, cargados en agosto de
+     2026. Con la inflación local, conviene revisarlos cada pocos meses;
+     buscar en esta página los tres <span class="precio__valor"> para
+     actualizarlos.
      ===================================================================== -->
 
   <div class="dotfield" data-dotfield aria-hidden="true"></div>
@@ -64,17 +54,17 @@
   <header class="nav">
     <div class="nav__inner">
       <a class="nav__brand" href="index.html" aria-label="KORA — inicio">
-        <svg class="nav__mark" width="32" height="32" viewBox="0 0 128 128" aria-hidden="true" focusable="false">
-          <g transform="translate(0 9)">
-            <g fill="none" stroke="#fffce1" stroke-width="9">
-              <circle cx="64" cy="41" r="23"></circle>
-              <circle cx="83.92" cy="75.5" r="23"></circle>
-              <circle cx="44.08" cy="75.5" r="23"></circle>
+        <svg class="nav__mark" width="40" height="40" viewBox="0 0 128 128" aria-hidden="true" focusable="false">
+          <g transform="translate(0 13.5)">
+            <g stroke="#fffce1" stroke-width="9" stroke-linecap="round">
+              <line class="iso__radio" x1="64" y1="64" x2="64.00" y2="10.00"></line>
+              <line class="iso__radio" x1="64" y1="64" x2="110.77" y2="91.00"></line>
+              <line class="iso__radio" x1="64" y1="64" x2="17.23" y2="91.00"></line>
             </g>
-            <circle cx="64" cy="64" r="15" fill="#0AE448"></circle>
-            <circle cx="64" cy="18" r="11" fill="#0AE448"></circle>
-            <circle cx="103.84" cy="87" r="11" fill="#0AE448"></circle>
-            <circle cx="24.16" cy="87" r="11" fill="#0AE448"></circle>
+            <circle class="iso__nodo" cx="64.00" cy="10.00" r="12" fill="#0AE448"></circle>
+            <circle class="iso__nodo" cx="110.77" cy="91.00" r="12" fill="#0AE448"></circle>
+            <circle class="iso__nodo" cx="17.23" cy="91.00" r="12" fill="#0AE448"></circle>
+            <circle class="iso__nucleo" cx="64" cy="64" r="25" fill="#0AE448"></circle>
           </g>
         </svg>
         <span class="nav__wordmark">KORA</span>
@@ -142,9 +132,10 @@
       </header>      <div class="planes">
       <article class="plan">
         <h3 class="plan__nombre">Landing</h3>
-        <p class="plan__para">Una página para presentar un servicio o una campaña puntual.</p>
-        <p class="plan__precio"><span class="precio__valor">A completar</span></p>
+        <p class="plan__para">Una página para presentar un servicio o una campaña puntual. Sin chatbot: es sólo la página web.</p>
+        <p class="plan__precio"><span class="precio__valor">$250.000</span></p>
         <p class="plan__plazo">3 semanas</p>
+        <p class="plan__plazo">+ $30.000/mes de mantenimiento</p>
         <ul class="plan__incluye">
           <li>Una página, diseño propio</li>
           <li>Textos escritos con vos</li>
@@ -152,6 +143,7 @@
           <li>Preparada para Google</li>
           <li>Panel para editar textos</li>
           <li>30 días de soporte</li>
+          <li>Modificaciones posteriores se cotizan por separado</li>
         </ul>
         <a class="btn btn--primary btn--block" href="contacto.html">Pedir presupuesto</a>
       </article>
@@ -159,8 +151,9 @@
         <span class="plan__etiqueta">El más pedido</span>
         <h3 class="plan__nombre">Sitio institucional</h3>
         <p class="plan__para">El sitio completo de tu empresa, con servicios, casos y contacto.</p>
-        <p class="plan__precio"><span class="precio__valor">A completar</span></p>
+        <p class="plan__precio"><span class="precio__valor">$300.000</span></p>
         <p class="plan__plazo">4 a 5 semanas</p>
+        <p class="plan__plazo">+ $60.000/mes de mantenimiento</p>
         <ul class="plan__incluye">
           <li>Hasta 6 páginas</li>
           <li>Todo lo de Landing</li>
@@ -168,14 +161,16 @@
           <li>Preguntas frecuentes</li>
           <li>Blog opcional</li>
           <li>Capacitación al equipo</li>
+          <li>3 modificaciones al mes sin cargo</li>
         </ul>
         <a class="btn btn--primary btn--block" href="contacto.html">Pedir presupuesto</a>
       </article>
       <article class="plan">
         <h3 class="plan__nombre">Tienda, chatbot o app</h3>
         <p class="plan__para">Cuando hay operación atrás: stock, pagos, usuarios o automatización.</p>
-        <p class="plan__precio"><span class="precio__valor">A completar</span></p>
+        <p class="plan__precio"><span class="precio__valor">$400.000</span></p>
         <p class="plan__plazo">8 a 12 semanas</p>
+        <p class="plan__plazo">+ $100.000/mes de mantenimiento</p>
         <ul class="plan__incluye">
           <li>Alcance definido con vos</li>
           <li>Se puede hacer por etapas</li>
@@ -183,10 +178,11 @@
           <li>Pagos y facturación</li>
           <li>Panel de administración</li>
           <li>Código y datos a tu nombre</li>
+          <li>10 modificaciones al mes incluidas</li>
         </ul>
         <a class="btn btn--primary btn--block" href="contacto.html">Pedir presupuesto</a>
       </article>
-      </div>      <p class="planes__nota">Los rangos orientan. El número final sale de la primera reunión y queda cerrado por escrito.</p>
+      </div>      <p class="planes__nota">Los valores son para el alcance estándar de cada plan. Si el tuyo necesita más, lo vemos en la primera reunión y el número queda cerrado por escrito.</p>
     </section>
     <section class="section" data-reveal>
       <header class="section__head">
@@ -319,7 +315,7 @@
           <h2 class="cta__title">¿Entramos en tu presupuesto?</h2>
           <p class="cta__text">Contanos qué necesitás y en 48 horas tenés un número cerrado. Si no llegamos, te lo decimos igual.</p>
           <div class="cta__acciones">
-            <a class="btn btn--accent btn--xl" href="contacto.html">Empezar un proyecto</a>
+            <a class="btn btn--accent btn--xl" href="contacto.html">Pedir mi número cerrado</a>
             <a class="cta__mail" href="https://wa.me/5491100000000?text=Hola%20KORA%2C%20quiero%20consultar%20por%20un%20proyecto." target="_blank" rel="noopener">o escribinos por WhatsApp</a>
           </div>
         </div>
@@ -333,17 +329,17 @@
       <div class="footer__grid">
         <div>
           <div class="footer__brand">
-            <svg width="28" height="28" viewBox="0 0 128 128" aria-hidden="true" focusable="false">
-          <g transform="translate(0 9)">
-            <g fill="none" stroke="#fffce1" stroke-width="9">
-              <circle cx="64" cy="41" r="23"></circle>
-              <circle cx="83.92" cy="75.5" r="23"></circle>
-              <circle cx="44.08" cy="75.5" r="23"></circle>
+            <svg width="34" height="34" viewBox="0 0 128 128" aria-hidden="true" focusable="false">
+          <g transform="translate(0 13.5)">
+            <g stroke="#fffce1" stroke-width="9" stroke-linecap="round">
+              <line class="iso__radio" x1="64" y1="64" x2="64.00" y2="10.00"></line>
+              <line class="iso__radio" x1="64" y1="64" x2="110.77" y2="91.00"></line>
+              <line class="iso__radio" x1="64" y1="64" x2="17.23" y2="91.00"></line>
             </g>
-            <circle cx="64" cy="64" r="15" fill="#0AE448"></circle>
-            <circle cx="64" cy="18" r="11" fill="#0AE448"></circle>
-            <circle cx="103.84" cy="87" r="11" fill="#0AE448"></circle>
-            <circle cx="24.16" cy="87" r="11" fill="#0AE448"></circle>
+            <circle class="iso__nodo" cx="64.00" cy="10.00" r="12" fill="#0AE448"></circle>
+            <circle class="iso__nodo" cx="110.77" cy="91.00" r="12" fill="#0AE448"></circle>
+            <circle class="iso__nodo" cx="17.23" cy="91.00" r="12" fill="#0AE448"></circle>
+            <circle class="iso__nucleo" cx="64" cy="64" r="25" fill="#0AE448"></circle>
           </g>
         </svg>
             <span class="footer__wordmark">KORA</span>

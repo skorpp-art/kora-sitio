@@ -45,6 +45,7 @@
   --ease-out: cubic-bezier(.17, .67, .32, 1);
   --wrap: 1280px;
   --nav-h: 76px;
+  --space-edge: clamp(20px, 4vw, 48px);   /* padding lateral — se repetía suelto 12 veces */
 }
 
 /* --------------------------------------------------------------------------
@@ -186,7 +187,7 @@ section[id], footer[id] { scroll-margin-top: calc(var(--nav-h) + 16px); }
 .nav__inner {
   max-width: var(--wrap);
   margin: 0 auto;
-  padding: 0 clamp(20px, 4vw, 48px);
+  padding: 0 var(--space-edge);
   height: var(--nav-h);
   display: flex;
   align-items: center;
@@ -198,8 +199,13 @@ section[id], footer[id] { scroll-margin-top: calc(var(--nav-h) + 16px); }
   display: inline-flex; align-items: center; gap: 12px;
   text-decoration: none;
 }
+/* El isotipo mide 40px, pero su dibujo ocupa 105 de las 128 unidades del
+   viewBox: unos 33px reales. A 19px las mayúsculas de KORA median 14px
+   —el 42% del isotipo— y la marca se leía como un ícono con una etiqueta
+   al lado. A 28px quedan en ~62%, que es la proporción donde un logotipo
+   y su isotipo se leen como una sola pieza. */
 .nav__wordmark {
-  font-size: 19px; font-weight: 600; letter-spacing: 0.02em;
+  font-size: 28px; font-weight: 600; letter-spacing: 0.02em;
   color: var(--cream);
 }
 
@@ -328,8 +334,8 @@ section[id], footer[id] { scroll-margin-top: calc(var(--nav-h) + 16px); }
 .wrap {
   max-width: var(--wrap);
   margin: 0 auto;
-  padding-left: clamp(20px, 4vw, 48px);
-  padding-right: clamp(20px, 4vw, 48px);
+  padding-left: var(--space-edge);
+  padding-right: var(--space-edge);
 }
 
 .sec { padding: clamp(84px, 10vw, 150px) 0; }
@@ -556,6 +562,7 @@ section[id], footer[id] { scroll-margin-top: calc(var(--nav-h) + 16px); }
   line-height: 1.4;
   color: var(--muted);
 }
+.stats__nota { margin: 22px 0 0; font-size: 13px; color: var(--muted); }
 .has-tooltip { cursor: help; }
 
 /* Tooltip oscuro-invertido (crema sobre negro) */
@@ -886,7 +893,8 @@ section[id], footer[id] { scroll-margin-top: calc(var(--nav-h) + 16px); }
 }
 
 .footer__brand { display: flex; align-items: center; gap: 12px; margin-bottom: 22px; }
-.footer__wordmark { font-size: 19px; font-weight: 600; letter-spacing: 0.02em; }
+/* Mismo criterio que el nav, escalado a su isotipo de 34px. */
+.footer__wordmark { font-size: 24px; font-weight: 600; letter-spacing: 0.02em; }
 .footer__about { margin: 0; max-width: 34ch; font-size: 15px; line-height: 1.55; color: var(--muted); }
 
 .footer__heading {
@@ -958,7 +966,7 @@ section[id], footer[id] { scroll-margin-top: calc(var(--nav-h) + 16px); }
     height: calc(100dvh - var(--nav-h));
     flex-direction: column; align-items: stretch;
     gap: 0;
-    padding: 12px clamp(20px, 4vw, 48px) 32px;
+    padding: 12px var(--space-edge) 32px;
     background: var(--canvas);
     border-bottom: 1px solid var(--line);
     transform: translateY(-12px);
@@ -1042,7 +1050,7 @@ section[id], footer[id] { scroll-margin-top: calc(var(--nav-h) + 16px); }
 .page-hero__inner {
   max-width: var(--wrap);
   margin: 0 auto;
-  padding: 0 clamp(20px, 4vw, 48px);
+  padding: 0 var(--space-edge);
 }
 .page-hero__title {
   margin: 26px 0 0;
@@ -1096,8 +1104,8 @@ section[id], footer[id] { scroll-margin-top: calc(var(--nav-h) + 16px); }
   max-width: var(--wrap);
   margin-left: auto;
   margin-right: auto;
-  padding-left: clamp(20px, 4vw, 48px);
-  padding-right: clamp(20px, 4vw, 48px);
+  padding-left: var(--space-edge);
+  padding-right: var(--space-edge);
 }
 
 /* Banda: mismo lienzo, panel apenas levantado del fondo */
@@ -1339,7 +1347,7 @@ section[id], footer[id] { scroll-margin-top: calc(var(--nav-h) + 16px); }
 .cta__inner {
   max-width: var(--wrap);
   margin: 0 auto;
-  padding: 0 clamp(20px, 4vw, 48px);
+  padding: 0 var(--space-edge);
 }
 .cta__title {
   margin: 0;
@@ -1478,7 +1486,7 @@ section[id], footer[id] { scroll-margin-top: calc(var(--nav-h) + 16px); }
 .caso-hero__inner {
   max-width: var(--wrap);
   margin: 0 auto;
-  padding: 0 clamp(20px, 4vw, 48px);
+  padding: 0 var(--space-edge);
 }
 .caso-hero__titulo {
   margin: 24px 0 0;
@@ -1512,7 +1520,7 @@ section[id], footer[id] { scroll-margin-top: calc(var(--nav-h) + 16px); }
 .caso-hero__figura {
   max-width: var(--wrap);
   margin: clamp(44px, 5vw, 72px) auto 0;
-  padding: 0 clamp(20px, 4vw, 48px);
+  padding: 0 var(--space-edge);
 }
 .caso-hero__figura img {
   width: 100%;
@@ -1817,7 +1825,7 @@ section[id], footer[id] { scroll-margin-top: calc(var(--nav-h) + 16px); }
 .page {
   max-width: var(--wrap);
   margin: 0 auto;
-  padding: clamp(64px, 8vw, 110px) clamp(20px, 4vw, 48px) clamp(72px, 9vw, 120px);
+  padding: clamp(64px, 8vw, 110px) var(--space-edge) clamp(72px, 9vw, 120px);
 }
 .page__eyebrow { margin-bottom: 26px; }
 .page__title {
@@ -1873,7 +1881,7 @@ section[id], footer[id] { scroll-margin-top: calc(var(--nav-h) + 16px); }
 .error-page {
   max-width: var(--wrap);
   margin: 0 auto;
-  padding: clamp(80px, 11vw, 170px) clamp(20px, 4vw, 48px);
+  padding: clamp(80px, 11vw, 170px) var(--space-edge);
   text-align: center;
 }
 .error-page__code {

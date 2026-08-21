@@ -246,7 +246,7 @@ SERVICIO_CHATBOTS = {
             "Y la mayoría no vuelve al día siguiente: escribe al que le contesta primero. Un chatbot bien armado responde en segundos, filtra lo que no sirve y te deja la conversación lista para cerrar.",
         )
         + seccion(
-            cabecera_seccion("A quién le sirve", "Antes de que pierdas tiempo.")
+            cabecera_seccion("A quién le sirve", "Antes de perder otra consulta fuera de horario.")
             + para_quien(
                 [
                     "Te llegan muchas consultas repetidas: precios, horarios, stock, envíos.",
@@ -263,7 +263,7 @@ SERVICIO_CHATBOTS = {
             )
         )
         + seccion(
-            cabecera_seccion("Qué incluye", "Todo lo que entra en el precio cerrado.")
+            cabecera_seccion("Qué incluye", "Lo que incluye tu chatbot, sin sorpresas después.")
             + entregables(
                 [
                     ("En WhatsApp y en la web", "El mismo bot atendiendo en los dos canales, con la misma información."),
@@ -278,7 +278,7 @@ SERVICIO_CHATBOTS = {
             )
         )
         + seccion(
-            cabecera_seccion("Cómo trabajamos", "Cinco etapas, siempre las mismas.")
+            cabecera_seccion("Cómo trabajamos", "Mismo proceso de siempre, aplicado a tu chatbot.")
             + proceso(
                 {
                     "1": "Revisamos tus conversaciones reales para ver qué se pregunta de verdad.",
@@ -324,6 +324,7 @@ SERVICIO_CHATBOTS = {
         + cta_final(
             "¿Cuántas consultas estás perdiendo?",
             "Contanos cuántos mensajes recibís por semana y te decimos si un chatbot te conviene o no.",
+            boton="Quiero dejar de perderlas",
         )
     ),
 }
@@ -340,7 +341,7 @@ SERVICIO_APPS = {
             "Casi todas las PyMEs llegan a un punto donde la operación vive en cinco planillas, un grupo de WhatsApp y la cabeza de una persona. Ahí es donde conviene un sistema propio, hecho a la medida de cómo trabajás.",
         )
         + seccion(
-            cabecera_seccion("A quién le sirve", "Antes de que pierdas tiempo.")
+            cabecera_seccion("A quién le sirve", "Antes de que el Excel se rompa del todo.")
             + para_quien(
                 [
                     "Tu operación depende de planillas que se pisan entre sí.",
@@ -357,7 +358,7 @@ SERVICIO_APPS = {
             )
         )
         + seccion(
-            cabecera_seccion("Qué incluye", "Todo lo que entra en el precio cerrado.")
+            cabecera_seccion("Qué incluye", "Lo que incluye tu sistema, de punta a punta.")
             + entregables(
                 [
                     ("Relevamiento en tu lugar", "Vamos, miramos cómo trabajan hoy y anotamos. No se diseña de memoria."),
@@ -372,7 +373,7 @@ SERVICIO_APPS = {
             )
         )
         + seccion(
-            cabecera_seccion("Cómo trabajamos", "Cinco etapas, siempre las mismas.")
+            cabecera_seccion("Cómo trabajamos", "Mismas cinco etapas, ahora para tu sistema.")
             + proceso(
                 {
                     "1": "Relevamiento en tu lugar de trabajo, con la gente que lo va a usar.",
@@ -419,6 +420,7 @@ SERVICIO_APPS = {
         + cta_final(
             "Contanos cómo trabajás hoy.",
             "Con media hora de charla ya podemos decirte si conviene un sistema a medida o si te sirve algo que ya existe.",
+            boton="Contarles cómo trabajo",
         )
     ),
 }
@@ -506,6 +508,7 @@ def caso(archivo, industria, nombre, metrica, metrica_label, resumen,
 """ + cta_final(
         "¿Tenés un problema parecido?",
         "Contanos en qué estás y te decimos si podemos ayudarte, con una propuesta concreta en 48 horas.",
+        boton="Contarles mi caso",
     )
 
     return {
@@ -593,8 +596,8 @@ CASOS_LISTA = {
     "cuerpo": (
         encabezado_pagina(
             "Casos",
-            "Casos con resultados, no sólo pantallas.",
-            "Cada caso cuenta el problema real, qué decidimos y por qué, y qué se movió después. El criterio importa más que la captura.",
+            "Cada caso, con el problema, la decisión y el resultado.",
+            "Nada de antes/después con filtro. Contamos qué pasaba, qué decidimos y por qué, y qué se movió después — con números.",
             cta=False,
         )
         + seccion(
@@ -658,6 +661,7 @@ CASOS_LISTA = {
         + cta_final(
             "¿Querés ser el próximo?",
             "Contanos tu problema y te decimos con qué lo resolveríamos, sin vueltas.",
+            boton="Quiero ser el próximo",
         )
     ),
 }

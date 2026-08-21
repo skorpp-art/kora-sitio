@@ -178,25 +178,15 @@ NOSOTROS = {
 # ==========================================================================
 AVISO_PRECIOS = """
 <!-- =====================================================================
-     PRECIOS — FALTAN LOS NÚMEROS
-
-     Los rangos están como "A completar" a propósito: poner un número
-     inventado sería peor que dejarlo vacío, porque es un compromiso
-     comercial que después hay que sostener.
-
-     PARA COMPLETAR: buscar en esta página los tres <span class="precio__valor">
-     y reemplazar "A completar" por el rango real.
-
-     Dos sugerencias, por si sirven:
-       · Un rango ("de X a Y") funciona mejor que un "desde X" solo: el
-         "desde" siempre se lee como el precio final y después decepciona.
-       · Si la inflación complica publicar pesos, se puede expresar en
-         dólares o en una unidad indexada y aclararlo al lado.
+     PRECIOS — valores fijos en pesos argentinos, cargados en agosto de
+     2026. Con la inflación local, conviene revisarlos cada pocos meses;
+     buscar en esta página los tres <span class="precio__valor"> para
+     actualizarlos.
      ===================================================================== -->
 """
 
 
-def plan(nombre, para, precio, plazo, incluye, destacado=False):
+def plan(nombre, para, precio, plazo, mantenimiento, incluye, destacado=False):
     items = "\n".join(f"          <li>{x}</li>" for x in incluye)
     clase = "plan plan--destacado" if destacado else "plan"
     etiqueta = '\n        <span class="plan__etiqueta">El más pedido</span>' if destacado else ""
@@ -205,6 +195,7 @@ def plan(nombre, para, precio, plazo, incluye, destacado=False):
         <p class="plan__para">{para}</p>
         <p class="plan__precio"><span class="precio__valor">{precio}</span></p>
         <p class="plan__plazo">{plazo}</p>
+        <p class="plan__plazo">{mantenimiento}</p>
         <ul class="plan__incluye">
 {items}
         </ul>
@@ -235,22 +226,25 @@ PRECIOS = {
         + seccion(
             cabecera_seccion("Rangos", "Tres formas de arrancar.")
             + '      <div class="planes">\n'
-            + plan("Landing", "Una página para presentar un servicio o una campaña puntual.",
-                   "A completar", "3 semanas",
+            + plan("Landing", "Una página para presentar un servicio o una campaña puntual. Sin chatbot: es sólo la página web.",
+                   "$250.000", "3 semanas", "+ $30.000/mes de mantenimiento",
                    ["Una página, diseño propio", "Textos escritos con vos", "Formulario con aviso por mail y WhatsApp",
-                    "Preparada para Google", "Panel para editar textos", "30 días de soporte"])
+                    "Preparada para Google", "Panel para editar textos", "30 días de soporte",
+                    "Modificaciones posteriores se cotizan por separado"])
             + "\n"
             + plan("Sitio institucional", "El sitio completo de tu empresa, con servicios, casos y contacto.",
-                   "A completar", "4 a 5 semanas",
+                   "$300.000", "4 a 5 semanas", "+ $60.000/mes de mantenimiento",
                    ["Hasta 6 páginas", "Todo lo de Landing", "Sección de casos o portfolio",
-                    "Preguntas frecuentes", "Blog opcional", "Capacitación al equipo"], destacado=True)
+                    "Preguntas frecuentes", "Blog opcional", "Capacitación al equipo",
+                    "3 modificaciones al mes sin cargo"], destacado=True)
             + "\n"
             + plan("Tienda, chatbot o app", "Cuando hay operación atrás: stock, pagos, usuarios o automatización.",
-                   "A completar", "8 a 12 semanas",
+                   "$400.000", "8 a 12 semanas", "+ $100.000/mes de mantenimiento",
                    ["Alcance definido con vos", "Se puede hacer por etapas", "Integraciones con lo que ya usás",
-                    "Pagos y facturación", "Panel de administración", "Código y datos a tu nombre"])
+                    "Pagos y facturación", "Panel de administración", "Código y datos a tu nombre",
+                    "10 modificaciones al mes incluidas"])
             + "\n      </div>"
-            + """      <p class="planes__nota">Los rangos orientan. El número final sale de la primera reunión y queda cerrado por escrito.</p>""",
+            + """      <p class="planes__nota">Los valores son para el alcance estándar de cada plan. Si el tuyo necesita más, lo vemos en la primera reunión y el número queda cerrado por escrito.</p>""",
             clase="section section--band",
         )
         + seccion(
@@ -328,6 +322,7 @@ PRECIOS = {
         + cta_final(
             "¿Entramos en tu presupuesto?",
             "Contanos qué necesitás y en 48 horas tenés un número cerrado. Si no llegamos, te lo decimos igual.",
+            boton="Pedir mi número cerrado",
         )
     ),
 }
