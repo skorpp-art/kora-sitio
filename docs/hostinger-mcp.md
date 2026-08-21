@@ -38,6 +38,9 @@ Environments → (el environment del repo) → Environment variables**, con
 nombre `HOSTINGER_API_TOKEN`. Queda guardado del lado de Anthropic y se
 inyecta en cada sesión nueva.
 
+Ojo: con el token cargado los servidores levantan, pero hoy las llamadas no
+salen igual — ver *Limitación: las sesiones web no llegan a la API* más abajo.
+
 ### Claude Code local (Windows)
 
 Definí la variable de usuario una vez en PowerShell y reiniciá la terminal:
@@ -81,6 +84,31 @@ devolver la máquina, no un 401.
 Son 220 tools en total. Si querés achicar eso, borrá del `.mcp.json` los
 bloques que no uses — para lo que hace este repo alcanzan `hostinger-vps`,
 `hostinger-dns` y `hostinger-domains`.
+
+## Limitación: las sesiones web no llegan a la API
+
+**Comprobado el 21/08/2026 y sin resolver.** El proxy de egress de Claude Code
+en la web bloquea `developers.hostinger.com`, que es el host contra el que
+pegan todos estos servidores:
+
+```
+curl https://developers.hostinger.com/api/vps/v1/virtual-machines
+curl: (56) CONNECT tunnel failed, response 403
+```
+
+El 403 aparece al abrir el túnel, antes de mandar el request — o sea que es
+política de red por host, no un problema de token ni de permisos de la API.
+Que `npx` baje paquetes de npm sin drama en la misma sesión confirma que el
+proxy en sí funciona: lo que no está en la lista blanca es Hostinger.
+
+Consecuencia práctica: **el `.mcp.json` sirve en Claude Code local, no en las
+sesiones de claude.ai/code.** Los servidores levantan igual en la web, pero
+toda llamada muere en el proxy.
+
+Para habilitarlo hay que tocar la política de red del *environment* (se elige
+al crearlo) y sumar `developers.hostinger.com` a los hosts permitidos. Está
+documentado en
+<https://code.claude.com/docs/en/claude-code-on-the-web>.
 
 ## Detalle importante: la API no da shell
 
