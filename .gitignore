@@ -23,3 +23,10 @@ _build/fuentes/
 
 # Capturas de diagnóstico que se fueron generando durante el diseño
 _build/*.png
+
+# Token de la API de Hostinger y cualquier otro secreto local. El `.mcp.json`
+# versionado sólo referencia ${HOSTINGER_API_TOKEN}: el valor vive en el
+# entorno, nunca en el repo.
+.env
+.env.*
+.mcp.local.json

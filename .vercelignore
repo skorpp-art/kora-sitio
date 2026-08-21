@@ -6,3 +6,7 @@ plantillas/
 # El generador tampoco hace falta en el servidor: las páginas que sirve
 # Vercel son HTML estático ya generado.
 _build/
+
+# Config de herramientas y documentación interna: no son parte del sitio.
+.mcp.json
+docs/
